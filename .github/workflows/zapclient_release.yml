@@ -194,7 +194,7 @@ jobs:
           version: 0.11.8
 
       - name: Import Apple Developer certificate
-        if: startsWith(matrix.platform, 'macos')
+        if: startsWith(matrix.platform, 'macos') && secrets.APPLE_CERTIFICATE != ''
         env:
           APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
           APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
@@ -218,7 +218,7 @@ jobs:
           # the macOS metadata so signing + notarization actually run.
           CERT_ID="$CERT_ID" python3 - <<'PY'
           import os, re
-          p = "packages/ZapClient_app/Cargo.toml"
+          p = "packages/zapclient_app/Cargo.toml"
           s = open(p).read()
           ident = os.environ["CERT_ID"]
           hdr = "[package.metadata.packager.macos]"
@@ -252,7 +252,7 @@ jobs:
           fi
 
       - name: (Windows) Upload unsigned app binary artifact
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         id: win_upload_unsigned_bin
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -260,7 +260,7 @@ jobs:
           path: target/release/ZapClient_app.exe
 
       - name: (Windows) Submit SignPath signing request for app binary
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         uses: signpath/github-action-submit-signing-request@ced31329c0317e779dad2eec2a7c3bb46ea1343e # v1.3
         with:
           api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
@@ -273,7 +273,7 @@ jobs:
           output-artifact-directory: signed-bin
 
       - name: (Windows) Swap in signed app binary
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         shell: bash
         run: |
           set -euo pipefail
@@ -286,7 +286,7 @@ jobs:
           cp "$signed" target/release/ZapClient_app.exe
 
       - name: (Windows) Verify app binary is signed
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         shell: pwsh
         run: |
           $sig = Get-AuthenticodeSignature 'target/release/ZapClient_app.exe'
@@ -302,9 +302,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          out="packages/ZapClient_app/icons/generated"
+          out="packages/zapclient_app/icons/generated"
           mkdir -p "$out"
-          xcrun actool packages/ZapClient_app/icons/ZapClient.icon \
+          xcrun actool packages/zapclient_app/icons/ZapClient.icon \
             --compile "$out" \
             --app-icon ZapClient \
             --output-partial-info-plist "$out/partial.plist" \
@@ -378,7 +378,7 @@ jobs:
           set -euo pipefail
           cp target/release/.cargo-packager/deb/*/data/usr/share/applications/ZapClient_app.desktop \
              target/release/ZapClient_app.desktop
-          cargo generate-rpm -p packages/ZapClient_app
+          cargo generate-rpm -p packages/zapclient_app
           cp target/generate-rpm/*.rpm "${{ steps.outdir.outputs.dir }}/"
 
       # Upload debug info (dSYM / .dwp / .pdb produced by the release profile's
@@ -443,7 +443,7 @@ jobs:
           Write-Host "OK: $($(Get-ChildItem 'target/crt/*.dll').Count) CRT DLLs sit beside ZapClient_app.exe"
 
       - name: (Windows) Upload unsigned installer artifact
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         id: win_upload_unsigned
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -451,7 +451,7 @@ jobs:
           path: ${{ steps.win_installer.outputs.path }}
 
       - name: (Windows) Submit SignPath signing request
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         uses: signpath/github-action-submit-signing-request@ced31329c0317e779dad2eec2a7c3bb46ea1343e # v1.3
         with:
           api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
@@ -464,7 +464,7 @@ jobs:
           output-artifact-directory: signed
 
       - name: (Windows) Replace installer with signed one + recompute updater sig
-        if: matrix.platform == 'windows-latest'
+        if: matrix.platform == 'windows-latest' && secrets.SIGNPATH_API_TOKEN != ''
         shell: bash
         env:
           CARGO_PACKAGER_SIGN_PRIVATE_KEY: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY }}
@@ -473,11 +473,13 @@ jobs:
           signed="$(ls signed/*-setup.exe | head -n1)"
           # Overwrite the unsigned installer in the packager out dir with the signed exe.
           cp "$signed" "${{ steps.win_installer.outputs.path }}"
-          # Recompute the updater signature over the SIGNED exe.
-          cargo packager signer sign \
-            --private-key "$CARGO_PACKAGER_SIGN_PRIVATE_KEY" \
-            --password "$CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD" \
-            "${{ steps.win_installer.outputs.path }}"
+          # Recompute the updater signature over the SIGNED exe if key provided.
+          if [ -n "$CARGO_PACKAGER_SIGN_PRIVATE_KEY" ]; then
+            cargo packager signer sign \
+              --private-key "$CARGO_PACKAGER_SIGN_PRIVATE_KEY" \
+              --password "$CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD" \
+              "${{ steps.win_installer.outputs.path }}"
+          fi
 
       - name: Upload installers and build manifest fragment
         shell: bash

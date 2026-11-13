@@ -120,9 +120,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          out="packages/ZapClient_app/icons/generated"
+          out="packages/zapclient_app/icons/generated"
           mkdir -p "$out"
-          xcrun actool packages/ZapClient_app/icons/ZapClient.icon \
+          xcrun actool packages/zapclient_app/icons/ZapClient.icon \
             --compile "$out" \
             --app-icon ZapClient \
             --output-partial-info-plist "$out/partial.plist" \
@@ -191,7 +191,7 @@ jobs:
           set -euo pipefail
           cp target/release/.cargo-packager/deb/*/data/usr/share/applications/ZapClient_app.desktop \
              target/release/ZapClient_app.desktop
-          cargo generate-rpm -p packages/ZapClient_app
+          cargo generate-rpm -p packages/zapclient_app
           cp target/generate-rpm/*.rpm "${{ steps.outdir.outputs.dir }}/"
 
       - name: (Windows) Smoke-test installer layout

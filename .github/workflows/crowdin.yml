@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'packages/ZapClient_app/lang/en_us.json'
+      - 'packages/zapclient_app/lang/en_us.json'
       - 'crowdin.yml'
       - '.github/crowdin/**'
       - '.github/workflows/crowdin.yml'
