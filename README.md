@@ -1,6 +1,14 @@
 # Zap Client ⚡
 
 <p align="center">
+  <img src=".github/media/RepoBanner.png" alt="Zap Client Banner" width="100%">
+</p>
+
+<p align="center">
+  <img src=".github/media/zap-logo.gif" alt="Zap Animation" width="300">
+</p>
+
+<p align="center">
   <strong>Un launcher Minecraft moderne, ultra-rapide et open source écrit en Rust.</strong>
 </p>
 
