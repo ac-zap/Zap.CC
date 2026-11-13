@@ -1,14 +1,14 @@
 {
-  "name": "PolyGlass Light",
+  "name": "Zap Light",
   "colors": {
     "light": true,
-    "page": "#D0D7F3",
-    "page_elevated": "#D9E0F7",
-    "card": "#E3EAFB",
-    "component": "#EBF2FF",
-    "border": "#A3A3A34D",
-    "text": "#000000",
-    "text_secondary": "#4E5661",
-    "accent": "#2B4BFF"
+    "page": "#EDF2FB",
+    "page_elevated": "#F5F8FE",
+    "card": "#FFFFFF",
+    "component": "#F0F4FC",
+    "border": "#2E319225",
+    "text": "#0B0F19",
+    "text_secondary": "#4A5568",
+    "accent": "#2E3192"
   }
 }

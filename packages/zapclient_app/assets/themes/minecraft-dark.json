@@ -1,5 +1,5 @@
 {
-  "name": "Minecraft Dark",
+  "name": "Zap Minecraft Dark",
   "radius_scale": 0,
   "font": "Minecraft",
   "mono_font": "Minecraft",
@@ -7,13 +7,13 @@
   "pixel_icons": true,
   "colors": {
     "light": false,
-    "page": "#11171C",
-    "page_elevated": "#171F24",
-    "card": "#1A2229",
-    "component": "#1E262B",
+    "page": "#0D1117",
+    "page_elevated": "#141A22",
+    "card": "#181F28",
+    "component": "#1F2833",
     "border": "#FFFFFF1A",
-    "text": "#D5DBFF",
-    "text_secondary": "#757883",
-    "accent": "#2B4BFF"
+    "text": "#E6EBFF",
+    "text_secondary": "#7E8A9E",
+    "accent": "#385CFF"
   }
 }

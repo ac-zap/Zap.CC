@@ -1,5 +1,5 @@
 {
-  "name": "Minecraft Light",
+  "name": "Zap Minecraft Light",
   "radius_scale": 0,
   "font": "Minecraft",
   "mono_font": "Minecraft",
@@ -7,13 +7,13 @@
   "pixel_icons": true,
   "colors": {
     "light": true,
-    "page": "#E8EDFF",
-    "page_elevated": "#DCE2F9",
-    "card": "#F5F8FF",
-    "component": "#D0D7F3",
-    "border": "#A3A3A34D",
-    "text": "#000000",
-    "text_secondary": "#4E5661",
-    "accent": "#2B4BFF"
+    "page": "#EDF2FB",
+    "page_elevated": "#F5F8FE",
+    "card": "#FFFFFF",
+    "component": "#EAF0FA",
+    "border": "#2E319230",
+    "text": "#0B0F19",
+    "text_secondary": "#4A5568",
+    "accent": "#2E3192"
   }
 }

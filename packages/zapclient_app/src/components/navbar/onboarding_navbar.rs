@@ -37,11 +37,5 @@ fn logo() -> impl IntoElement {
     rect()
         .horizontal()
         .cross_align(Alignment::Center)
-        .spacing(18.)
-        .child(
-            Icon::new(IconType::IconLogo)
-                .size(32.)
-                .color(colors::fg_primary()),
-        )
         .child(theme::wordmark(170., 36., colors::fg_primary()))
 }

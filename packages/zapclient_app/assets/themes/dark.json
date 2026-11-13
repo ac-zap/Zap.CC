@@ -1,14 +1,14 @@
 {
-  "name": "PolyGlass Dark",
+  "name": "Zap Dark",
   "colors": {
     "light": false,
-    "page": "#11171C",
-    "page_elevated": "#151C22",
-    "card": "#1A2229",
-    "component": "#1A2229",
-    "border": "#FFFFFF1A",
-    "text": "#D5DBFF",
-    "text_secondary": "#757883",
-    "accent": "#2B4BFF"
+    "page": "#0B0F17",
+    "page_elevated": "#111622",
+    "card": "#161C2B",
+    "component": "#1D2538",
+    "border": "#385CFF26",
+    "text": "#F0F4FF",
+    "text_secondary": "#8593A8",
+    "accent": "#385CFF"
   }
 }

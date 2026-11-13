@@ -80,7 +80,7 @@ impl Component for Navbar {
 }
 
 fn navbar_left(show_logo: bool, over_art: bool) -> impl IntoElement {
-    rect()
+    let mut left = rect()
         .horizontal()
         .width(if show_logo {
             Size::flex(1.0)
@@ -91,16 +91,19 @@ fn navbar_left(show_logo: bool, over_art: bool) -> impl IntoElement {
         .spacing(NAV_LINK_SPACING_PX / 2.)
         .maybe(!show_logo, |el| {
             el.padding(Gaps::new(0., NAV_LINK_SPACING_PX, 0., 0.))
-        })
-        .child(
+        });
+
+    if show_logo {
+        left = left.child(NavbarLogo { over_art }.into_element());
+    } else {
+        left = left.child(
             Icon::new(IconType::IconLogo)
                 .size(COMPACT_LOGO_PX)
                 .color(primary_color(over_art))
                 .into_element(),
-        )
-        .maybe(show_logo, |rect| {
-            rect.child(NavbarLogo { over_art }.into_element())
-        })
+        );
+    }
+    left
 }
 
 fn primary_color(over_art: bool) -> Color {
