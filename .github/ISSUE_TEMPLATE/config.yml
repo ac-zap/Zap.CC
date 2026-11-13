@@ -1,0 +1,11 @@
+﻿blank_issues_enabled: true
+contact_links:
+  - name: Discord
+    about: Ask questions or share feature requests on our Discord Server.
+    url: https://discord.gg/zapclient
+  - name: Zap Documentation
+    about: Useful documentation about Zap, OneConfig, and other Zap projects.
+    url: https://docs.zap.cc
+  - name: Zap Docs^2
+    about: Useful documentation about how you can contribute to Zap projects.
+    url: https://contributing.zap.cc

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>cc.zap.client</id>
+  <name>ZapClient</name>
+  <summary>Next-generation open source Minecraft launcher</summary>
+  <developer id="cc.zap">
+    <name>Zap.cc</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <description>
+    <p>ZapClient is a next-generation open source Minecraft launcher by Zap.</p>
+  </description>
+  <launchable type="desktop-id">cc.zap.client.desktop</launchable>
+  <url type="homepage">https://zap.cc</url>
+  <url type="bugtracker">https://github.com/ac-zap/Zap.CC/issues</url>
+  <url type="vcs-browser">https://github.com/ac-zap/Zap.CC</url>
+  <content_rating type="oars-1.1"/>
+  <provides>
+    <binary>ZapClient_app</binary>
+  </provides>
+</component>

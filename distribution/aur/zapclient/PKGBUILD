@@ -1,0 +1,70 @@
+﻿# Maintainer: Zap <contact@zap.cc>
+pkgname=ZapClient
+pkgver=2.0.1
+pkgrel=1
+pkgdesc="Next-generation open source Minecraft launcher (built from source)"
+arch=('x86_64')
+url="https://github.com/ac-zap/Zap.CC"
+license=('GPL-3.0-only')
+depends=(
+  'fontconfig'
+  'freetype2'
+  'libglvnd'
+  'libxcursor'
+  'libxrandr'
+  'libxi'
+  'libxkbcommon'
+  'wayland'
+  'dbus'
+)
+makedepends=(
+  'rust'
+  'cargo'
+  'cmake'
+  'clang'
+  'pkgconf'
+  'python'
+)
+provides=('ZapClient')
+conflicts=('zapclient-bin')
+options=(
+  '!lto'
+  '!debug'
+)
+source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/zapclient-${pkgver}.tar.gz")
+sha256sums=('SKIP')
+
+_srcdir="zap-client-${pkgver}"
+
+prepare() {
+  cd "$srcdir/$_srcdir"
+  export CARGO_HOME="$srcdir/cargo-home"
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "$srcdir/$_srcdir"
+  export CARGO_HOME="$srcdir/cargo-home"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --release --frozen --bin ZapClient_app
+}
+
+package() {
+  cd "$srcdir/$_srcdir"
+  local appdir="packages/ZapClient_app"
+
+  install -Dm755 "target/release/ZapClient_app" "$pkgdir/usr/bin/ZapClient_app"
+  ln -s ZapClient_app "$pkgdir/usr/bin/ZapClient"
+
+  install -dm755 "$pkgdir/usr/share/applications"
+  sed -e 's|{{exec}}|ZapClient_app|g' \
+      -e 's|{{icon}}|cc.zap.client|g' \
+      "$appdir/distribution/linux/cc.zap.client.template" \
+      > "$pkgdir/usr/share/applications/cc.zap.client.desktop"
+
+  install -Dm644 "$appdir/icons/32x32.png"    "$pkgdir/usr/share/icons/hicolor/32x32/apps/cc.zap.client.png"
+  install -Dm644 "$appdir/icons/128x128.png"  "$pkgdir/usr/share/icons/hicolor/128x128/apps/cc.zap.client.png"
+  install -Dm644 "$appdir/icons/128x128@2x.png" "$pkgdir/usr/share/icons/hicolor/256x256/apps/cc.zap.client.png"
+  install -Dm644 "$appdir/icons/512x512.png"  "$pkgdir/usr/share/icons/hicolor/512x512/apps/cc.zap.client.png"
+}
