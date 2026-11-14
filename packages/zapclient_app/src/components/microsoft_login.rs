@@ -1,4 +1,4 @@
-﻿use crate::i18n::t;
+use crate::i18n::t;
 use crate::state::LoginProgress;
 use freya::prelude::*;
 use freya::query::{MutationCapability, MutationStateData, UseMutation};

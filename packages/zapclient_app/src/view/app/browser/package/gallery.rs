@@ -1,4 +1,4 @@
-﻿//! Remote images behind the shared image cache a tile and the opened view ask for the same url at two different sizes
+//! Remote images behind the shared image cache a tile and the opened view ask for the same url at two different sizes
 
 use super::*;
 

@@ -1,4 +1,4 @@
-﻿use sqlx::QueryBuilder;
+use sqlx::QueryBuilder;
 use sqlx::SqlitePool;
 
 use crate::models::{BundleRow, NewBundle};

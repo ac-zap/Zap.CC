@@ -1,4 +1,4 @@
-﻿use zapclient_db::DbPool;
+use zapclient_db::DbPool;
 use zapclient_events::EventBus;
 use zapclient_net::RequestClient;
 

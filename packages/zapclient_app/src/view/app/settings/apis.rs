@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use super::settings_page;
 use crate::components::{IconType, TextInput};

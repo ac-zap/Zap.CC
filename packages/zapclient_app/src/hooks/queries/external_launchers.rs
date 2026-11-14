@@ -1,4 +1,4 @@
-﻿use freya::query::{Query, QueryCapability, UseQuery, use_query};
+use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::{ExternalDetection, LauncherError, detect_external_launchers};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]

@@ -1,4 +1,4 @@
-﻿use std::os::unix::fs::PermissionsExt;
+use std::os::unix::fs::PermissionsExt;
 use std::path::Path;
 
 use anyhow::Result;

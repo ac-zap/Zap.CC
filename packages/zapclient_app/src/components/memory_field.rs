@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{Dropdown, TextInput, validate_memory};
 use crate::i18n::t;

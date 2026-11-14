@@ -1,4 +1,4 @@
-﻿use std::cmp::Reverse;
+use std::cmp::Reverse;
 use std::collections::HashSet;
 use std::path::Path;
 

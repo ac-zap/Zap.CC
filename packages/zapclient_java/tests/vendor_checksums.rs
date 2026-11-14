@@ -1,4 +1,4 @@
-﻿use zapclient_java::vendors::runtime_providers;
+use zapclient_java::vendors::runtime_providers;
 use zapclient_net::{NetConfig, RequestClient};
 use polyio::ChecksumAlgorithm;
 

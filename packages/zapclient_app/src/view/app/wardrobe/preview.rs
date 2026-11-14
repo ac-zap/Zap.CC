@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use freya::prelude::*;
 use zapclient_polyplus::api::{self, SkinModel};

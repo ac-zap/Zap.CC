@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use zapclient_core::game::{Analytics, Persona};
 

@@ -1,4 +1,4 @@
-﻿use reqwest::Response;
+use reqwest::Response;
 use uuid::Uuid;
 
 use crate::error::RequestError;

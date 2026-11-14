@@ -1,4 +1,4 @@
-﻿//! The global lives here not in the core so the library stays constructible in tests
+//! The global lives here not in the core so the library stays constructible in tests
 //! It is needed because `freya::query`'s `run` methods take only keys with no context
 
 use std::sync::{Arc, OnceLock};

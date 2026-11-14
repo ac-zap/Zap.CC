@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 
 use zapclient_content::packages::{CachedPackageMeta, ProviderId};
 use zapclient_core::BundleArchive;

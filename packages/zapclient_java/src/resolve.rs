@@ -1,4 +1,4 @@
-﻿use std::path::{Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use crate::data::java_executable_relative_path;
 use crate::error::{JavaError, JavaResult};

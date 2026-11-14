@@ -1,4 +1,4 @@
-﻿use futures_util::StreamExt;
+use futures_util::StreamExt;
 use reqwest::{Method, Request};
 use url::Url;
 

@@ -1,4 +1,4 @@
-﻿use zapclient_common::domain::{ContentType, ProviderId};
+use zapclient_common::domain::{ContentType, ProviderId};
 use zapclient_content::packages::types::{PackageBody, SearchFilters};
 use zapclient_core::dev;
 

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_java::{AvailableJava, JavaVendor};
 
 use crate::components::{Button, Dropdown, Icon, IconType, OverlayPopup, ScrollArea};

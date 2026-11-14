@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use freya::prelude::*;
 use zapclient_cluster::naming::{MAX_TAG_CHARS, NameProblem, is_allowed_name_char, validate_tag};

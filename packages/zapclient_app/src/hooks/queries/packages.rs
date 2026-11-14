@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 use std::time::Duration;
 
 use freya::query::{Query, QueryCapability, UseQuery, use_query};

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::router::*;
 
 use crate::i18n::t;

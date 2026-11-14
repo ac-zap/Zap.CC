@@ -1,4 +1,4 @@
-﻿#[tokio::main]
+#[tokio::main]
 async fn main() {
     match zapclient_core::detect_migration().await {
         Ok(Some(detection)) => {

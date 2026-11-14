@@ -1,4 +1,4 @@
-﻿use std::path::{Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use zapclient_common::paths;
 use zapclient_content::packages::PackageStore;

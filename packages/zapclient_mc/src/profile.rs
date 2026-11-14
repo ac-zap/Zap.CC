@@ -1,4 +1,4 @@
-﻿use base64::Engine;
+use base64::Engine;
 use chrono::{DateTime, TimeDelta, Utc};
 use reqwest::Method;
 use serde::{Deserialize, Serialize};

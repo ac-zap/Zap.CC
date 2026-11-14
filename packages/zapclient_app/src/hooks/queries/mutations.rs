@@ -1,4 +1,4 @@
-﻿use freya::query::{Mutation, MutationCapability, QueriesStorage, UseMutation, use_mutation};
+use freya::query::{Mutation, MutationCapability, QueriesStorage, UseMutation, use_mutation};
 use zapclient_common::domain::GameLoader;
 use zapclient_content::packages::LiveSync;
 use zapclient_core::BundleArchive;

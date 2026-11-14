@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use uuid::Uuid;
 
 use zapclient_polyplus::{GroupKind, MAX_MESSAGE_LENGTH};

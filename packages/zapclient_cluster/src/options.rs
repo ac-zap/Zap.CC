@@ -1,4 +1,4 @@
-﻿use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serialize};
 
 use zapclient_common::domain::GameLoader;
 use zapclient_common::patch::Patch;

@@ -1,4 +1,4 @@
-﻿use freya::animation::{AnimNum, Ease, OnCreation, use_animation};
+use freya::animation::{AnimNum, Ease, OnCreation, use_animation};
 use freya::prelude::*;
 
 use crate::components::{

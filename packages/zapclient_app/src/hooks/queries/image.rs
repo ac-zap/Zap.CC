@@ -1,4 +1,4 @@
-﻿use std::time::Duration;
+use std::time::Duration;
 
 use bytes::Bytes;
 use freya::query::{Query, QueryCapability, UseQuery, use_query};

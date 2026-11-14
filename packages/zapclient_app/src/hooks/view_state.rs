@@ -1,4 +1,4 @@
-﻿use std::collections::BTreeMap;
+use std::collections::BTreeMap;
 
 use freya::prelude::*;
 use zapclient_core::settings::{ViewLayout, ViewState};

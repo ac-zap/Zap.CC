@@ -1,4 +1,4 @@
-﻿use std::panic;
+use std::panic;
 use std::time::Duration;
 
 use sentry::protocol::{Breadcrumb, Context, Event};

@@ -1,4 +1,4 @@
-﻿use std::io;
+use std::io;
 use std::sync::OnceLock;
 
 use parking_lot::Mutex;

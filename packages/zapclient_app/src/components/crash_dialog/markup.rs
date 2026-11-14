@@ -1,4 +1,4 @@
-﻿use crate::components::clean_line;
+use crate::components::clean_line;
 use crate::i18n::t;
 
 const MAX_LINE_COLS: usize = 400;

@@ -1,4 +1,4 @@
-﻿use chrono::{Duration, Utc};
+use chrono::{Duration, Utc};
 use md5::{Digest, Md5};
 use uuid::Uuid;
 

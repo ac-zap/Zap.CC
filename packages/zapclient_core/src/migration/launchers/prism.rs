@@ -1,4 +1,4 @@
-﻿//! Prism Launcher and the MultiMC family share one on-disk format: a global
+//! Prism Launcher and the MultiMC family share one on-disk format: a global
 //! `<launcher>.cfg`, an `instances/` folder (relocatable through `InstanceDir`)
 //! holding `instance.cfg` + `mmc-pack.json` per instance, and `instgroups.json`
 

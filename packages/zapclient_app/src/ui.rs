@@ -1,4 +1,4 @@
-﻿use std::sync::LazyLock;
+use std::sync::LazyLock;
 use std::time::Instant;
 
 use freya::prelude::*;

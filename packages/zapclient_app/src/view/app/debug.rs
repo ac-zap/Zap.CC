@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::router::RouterContext;
 use zapclient_db::console::{ConsoleQueryResult, run_console_query};
 use zapclient_db::models::OptionalModStatus;

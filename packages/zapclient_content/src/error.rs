@@ -1,4 +1,4 @@
-﻿use crate::bundles::BundleError;
+use crate::bundles::BundleError;
 use crate::packages::PackageError;
 
 pub type ContentResult<T> = Result<T, ContentError>;

@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 use std::sync::Arc;
 
 use zapclient_cluster::naming::{is_allowed_name_char, validate_modpack_instance_name};

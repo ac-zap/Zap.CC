@@ -1,4 +1,4 @@
-﻿use std::path::Path;
+use std::path::Path;
 
 use zapclient_events::{EventBus, GroupedProgressChild, TaskPhase};
 use polyio::{Checksum, ChecksumStream, normalize_hash};

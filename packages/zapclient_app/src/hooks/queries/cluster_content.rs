@@ -1,4 +1,4 @@
-﻿use freya::prelude::{spawn, use_hook};
+use freya::prelude::{spawn, use_hook};
 use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use notify::{Event, EventKind};
 use std::collections::HashSet;

@@ -1,4 +1,4 @@
-﻿use freya::{
+use freya::{
     animation::{AnimNum, Ease, OnCreation, use_animation},
     prelude::*,
     router::RouterContext,

@@ -1,4 +1,4 @@
-﻿use zapclient_common::domain::{ContentType, GameLoader};
+use zapclient_common::domain::{ContentType, GameLoader};
 use zapclient_content::packages::types::ExternalFile;
 use zapclient_core::clusters::{Cluster, ClusterStage};
 use zapclient_core::{

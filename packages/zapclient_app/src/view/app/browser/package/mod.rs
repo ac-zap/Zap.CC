@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use std::collections::HashMap;
 
 use zapclient_content::packages::types::DependencyKind;

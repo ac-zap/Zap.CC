@@ -1,4 +1,4 @@
-﻿use reqwest::Method;
+use reqwest::Method;
 use serde::de::DeserializeOwned;
 
 use crate::ctx::ContentCtx;

@@ -1,4 +1,4 @@
-﻿use zapclient_cluster::profiles::list_named_profiles;
+use zapclient_cluster::profiles::list_named_profiles;
 use zapclient_common::domain::GameLoader;
 use zapclient_core::clusters::CreateClusterOptions;
 use zapclient_core::dev;

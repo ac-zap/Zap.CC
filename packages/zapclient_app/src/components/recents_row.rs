@@ -1,4 +1,4 @@
-﻿use std::time::Duration;
+use std::time::Duration;
 
 use freya::animation::*;
 use freya::prelude::*;

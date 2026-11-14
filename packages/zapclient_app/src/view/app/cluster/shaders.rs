@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_content::packages::ContentType;
 
 use crate::hooks::{

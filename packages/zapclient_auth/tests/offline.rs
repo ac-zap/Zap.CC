@@ -1,4 +1,4 @@
-﻿use chrono::{TimeDelta, Utc};
+use chrono::{TimeDelta, Utc};
 use zapclient_auth::{AccountKind, CredentialsStore, offline_account, offline_uuid};
 use uuid::Uuid;
 

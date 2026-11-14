@@ -1,4 +1,4 @@
-﻿//! Core operations go onto freya's UI-thread executor radio state is `!Send`
+//! Core operations go onto freya's UI-thread executor radio state is `!Send`
 //!
 //! Always `spawn_in_window` never `spawn` Freya's `spawn` cancels the task when
 //! the calling component unmounts this work is app-scoped not component-scoped

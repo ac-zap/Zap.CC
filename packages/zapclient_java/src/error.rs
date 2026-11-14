@@ -1,4 +1,4 @@
-﻿use thiserror::Error;
+use thiserror::Error;
 
 pub type JavaResult<T> = Result<T, JavaError>;
 

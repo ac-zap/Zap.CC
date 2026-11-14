@@ -1,4 +1,4 @@
-﻿use reqwest::{Method, Request};
+use reqwest::{Method, Request};
 use serde::Deserialize;
 use url::Url;
 

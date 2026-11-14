@@ -1,4 +1,4 @@
-﻿//! "Other packages need this one" — the confirmation in front of a disable
+//! "Other packages need this one" — the confirmation in front of a disable
 //! that would take more than one package with it.
 //!
 //! Raised from [`crate::disable`], which resolves the impact before anything is

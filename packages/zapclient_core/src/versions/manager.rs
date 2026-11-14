@@ -1,4 +1,4 @@
-﻿use serde::de::DeserializeOwned;
+use serde::de::DeserializeOwned;
 use tokio::sync::{Mutex, RwLock};
 
 use crate::LauncherResult;

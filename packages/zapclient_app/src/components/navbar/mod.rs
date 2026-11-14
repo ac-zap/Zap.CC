@@ -1,4 +1,4 @@
-﻿mod app_navbar;
+mod app_navbar;
 mod onboarding_navbar;
 
 pub use app_navbar::Navbar as AppNavbar;

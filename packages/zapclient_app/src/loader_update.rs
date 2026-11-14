@@ -1,4 +1,4 @@
-﻿use zapclient_common::PackageUpdateMode;
+use zapclient_common::PackageUpdateMode;
 use zapclient_core::clusters::{
     apply_loader_update, auto_update_loader, available_loader_update, loader_update_policy,
     set_loader_update_policy,

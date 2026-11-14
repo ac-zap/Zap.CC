@@ -1,4 +1,4 @@
-﻿use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
 
 use zapclient_db::dao::cluster_bundle as bundle_dao;
 use zapclient_db::models::ClusterRow;

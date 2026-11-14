@@ -1,4 +1,4 @@
-﻿use zapclient_common::domain::GameLoader;
+use zapclient_common::domain::GameLoader;
 use zapclient_content::packages::PackageStore;
 use zapclient_content::packages::store::manifest::{self, MaterializedManifest};
 use zapclient_core::clusters::CreateClusterOptions;

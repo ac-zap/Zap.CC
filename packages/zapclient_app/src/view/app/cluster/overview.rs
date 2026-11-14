@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::ScrollArea;
 use crate::hooks::{try_cluster_analytics, use_cluster_analytics};

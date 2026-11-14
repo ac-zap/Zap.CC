@@ -1,4 +1,4 @@
-﻿//! The game's own `options.txt` is the source of truth for the settings the
+//! The game's own `options.txt` is the source of truth for the settings the
 //! launcher exposes, so the game's crash fallback can still rewrite them
 
 use std::path::Path;

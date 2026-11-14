@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_core::storage::{ReclaimableEntry, StorageEntry, StorageReport, format_bytes};
 
 use super::{section_header, settings_page};

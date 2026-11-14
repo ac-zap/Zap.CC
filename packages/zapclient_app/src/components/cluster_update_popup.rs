@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 
 use freya::{prelude::*, router::RouterContext};
 use zapclient_content::packages::{CachedPackageMeta, ProviderId};

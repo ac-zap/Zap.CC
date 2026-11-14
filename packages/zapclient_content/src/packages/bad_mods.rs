@@ -1,4 +1,4 @@
-﻿use std::collections::HashSet;
+use std::collections::HashSet;
 use std::sync::{Arc, PoisonError, RwLock};
 
 use serde::de::DeserializeOwned;

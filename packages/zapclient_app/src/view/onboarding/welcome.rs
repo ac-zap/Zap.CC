@@ -1,4 +1,4 @@
-﻿use freya::animation::*;
+use freya::animation::*;
 use freya::prelude::*;
 
 use crate::hooks::use_onboarding_selection;

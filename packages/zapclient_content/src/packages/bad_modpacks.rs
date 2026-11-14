@@ -1,4 +1,4 @@
-﻿use std::sync::{Arc, PoisonError, RwLock};
+use std::sync::{Arc, PoisonError, RwLock};
 
 use serde::Deserialize;
 

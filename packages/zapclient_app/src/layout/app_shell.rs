@@ -1,4 +1,4 @@
-﻿use bytes::Bytes;
+use bytes::Bytes;
 use freya::animation::*;
 use freya::engine::prelude::{Paint, SamplingOptions, SkData, SkImage, SkRect};
 use freya::prelude::*;

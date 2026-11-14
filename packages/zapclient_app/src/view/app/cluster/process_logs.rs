@@ -1,4 +1,4 @@
-﻿use std::sync::Arc;
+use std::sync::Arc;
 
 use freya::prelude::*;
 use zapclient_cluster::logs::parse_level;

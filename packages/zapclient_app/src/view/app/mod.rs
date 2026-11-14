@@ -1,4 +1,4 @@
-﻿mod analytics;
+mod analytics;
 mod clusters;
 mod debug;
 mod home;

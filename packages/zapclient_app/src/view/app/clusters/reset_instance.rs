@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{Button, OverlayPopup};
 use crate::hooks::{use_cluster, use_game_snapshot};

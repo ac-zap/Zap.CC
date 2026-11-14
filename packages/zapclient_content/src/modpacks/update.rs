@@ -1,4 +1,4 @@
-﻿use zapclient_db::dao::artifact as artifact_dao;
+use zapclient_db::dao::artifact as artifact_dao;
 use zapclient_db::models::{ClusterRow, ProviderReleaseRow};
 
 use crate::ctx::ContentCtx;

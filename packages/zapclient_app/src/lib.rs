@@ -1,4 +1,4 @@
-﻿// TODO Remove this once freya has some workaround for this
+// TODO Remove this once freya has some workaround for this
 #![allow(float_literal_f32_fallback)]
 // Instrumented zapclient_core async call chains exceed the default limit
 #![recursion_limit = "256"]

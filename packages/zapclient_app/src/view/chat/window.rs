@@ -1,4 +1,4 @@
-﻿use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, Ordering};
 
 use freya::prelude::*;
 use freya::winit::dpi::{PhysicalPosition, PhysicalSize};

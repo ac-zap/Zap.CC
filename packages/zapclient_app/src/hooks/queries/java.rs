@@ -1,4 +1,4 @@
-﻿use freya::query::{QueriesStorage, Query, QueryCapability, UseQuery, use_query};
+use freya::query::{QueriesStorage, Query, QueryCapability, UseQuery, use_query};
 use zapclient_java::{AvailableJava, JavaRuntime, JavaVendor};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]

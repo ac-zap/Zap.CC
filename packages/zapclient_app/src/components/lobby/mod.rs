@@ -1,4 +1,4 @@
-﻿mod dialogs;
+mod dialogs;
 mod panel;
 mod widgets;
 

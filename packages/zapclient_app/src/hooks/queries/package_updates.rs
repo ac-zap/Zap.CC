@@ -1,4 +1,4 @@
-﻿use std::collections::HashSet;
+use std::collections::HashSet;
 
 use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::{BrowserPackageUpdate, LauncherError};

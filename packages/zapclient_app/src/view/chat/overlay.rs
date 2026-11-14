@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{OVERLAY_BASE_LEVEL, OverlayPopup, popup_surface, use_popup_intro};
 use crate::hooks::{use_chat_allowed, use_dispatch, use_social_open, use_social_popped_notice};

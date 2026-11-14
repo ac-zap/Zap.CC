@@ -1,4 +1,4 @@
-﻿//! Who in a cluster depends on a package.
+//! Who in a cluster depends on a package.
 //!
 //! [`crate::packages::dependencies`] answers the forward question at install
 //! time — "what does this need?" — by asking the provider. This module answers

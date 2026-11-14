@@ -1,4 +1,4 @@
-﻿use zapclient_common::domain::GameLoader;
+use zapclient_common::domain::GameLoader;
 use zapclient_common::{VersionKey, parse_mc_version};
 use zapclient_core::VersionMetadata;
 use zapclient_core::clusters::Cluster;

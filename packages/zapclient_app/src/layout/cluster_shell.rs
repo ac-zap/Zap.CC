@@ -1,4 +1,4 @@
-﻿use freya::animation::*;
+use freya::animation::*;
 use freya::prelude::*;
 use freya::router::*;
 use zapclient_common::parse_mc_version;

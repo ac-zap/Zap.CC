@@ -1,4 +1,4 @@
-﻿use sqlx::SqlitePool;
+use sqlx::SqlitePool;
 
 use crate::models::{
     ArtifactRow, ClusterArtifactRow, ClusterDependencyEdgeRow, ClusterKind, LinkedArtifactRow,

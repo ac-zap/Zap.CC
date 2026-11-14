@@ -1,4 +1,4 @@
-﻿use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, HashMap};
 
 use chrono::{Datelike, Local, Months, NaiveDate};
 use freya::prelude::*;

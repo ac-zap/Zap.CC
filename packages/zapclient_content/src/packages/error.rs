@@ -1,4 +1,4 @@
-﻿use thiserror::Error;
+use thiserror::Error;
 
 use super::types::PackageBody;
 use zapclient_common::domain::ProviderId;

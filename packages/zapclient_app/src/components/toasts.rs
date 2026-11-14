@@ -1,4 +1,4 @@
-﻿use std::{cell::Cell, rc::Rc, time::Instant};
+use std::{cell::Cell, rc::Rc, time::Instant};
 
 use freya::{
     animation::{

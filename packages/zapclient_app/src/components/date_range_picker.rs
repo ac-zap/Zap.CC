@@ -1,4 +1,4 @@
-﻿use chrono::{Datelike, Days, Months, NaiveDate};
+use chrono::{Datelike, Days, Months, NaiveDate};
 use freya::prelude::*;
 
 use crate::components::{Icon, IconType, OverlayPopup};

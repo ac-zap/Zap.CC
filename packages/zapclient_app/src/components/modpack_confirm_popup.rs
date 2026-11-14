@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 
 use freya::prelude::*;
 use zapclient_content::modpacks::{ModpackSummary, UnlistedMod};

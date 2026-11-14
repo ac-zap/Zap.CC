@@ -1,4 +1,4 @@
-﻿mod download;
+mod download;
 mod gc;
 mod link;
 pub mod manifest;

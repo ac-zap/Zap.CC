@@ -1,4 +1,4 @@
-﻿use freya::animation::{
+use freya::animation::{
     AnimNum, Ease, Function, OnChange, OnCreation, use_animation_with_dependencies,
 };
 use freya::prelude::*;

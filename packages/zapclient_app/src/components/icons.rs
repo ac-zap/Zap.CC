@@ -1,4 +1,4 @@
-﻿use std::borrow::Cow;
+use std::borrow::Cow;
 
 use freya::prelude::*;
 use zapclient_content::packages::ProviderId;

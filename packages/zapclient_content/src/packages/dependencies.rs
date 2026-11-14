@@ -1,4 +1,4 @@
-﻿use std::collections::{HashSet, VecDeque};
+use std::collections::{HashSet, VecDeque};
 
 use zapclient_common::domain::{ContentType, GameLoader, ProviderId};
 use zapclient_db::dao::artifact as artifact_dao;

@@ -1,4 +1,4 @@
-﻿use zapclient_common::constants;
+use zapclient_common::constants;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct NetConfig {

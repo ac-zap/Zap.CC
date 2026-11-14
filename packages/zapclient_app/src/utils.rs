@@ -1,4 +1,4 @@
-﻿use std::cmp::Ordering;
+use std::cmp::Ordering;
 use std::collections::BTreeMap;
 
 use chrono::{Datelike, NaiveDate};

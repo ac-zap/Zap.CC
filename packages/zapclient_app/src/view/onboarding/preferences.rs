@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{IconType, toggle};
 use crate::hooks::{use_dispatch, use_onboarding_selection, use_settings_snapshot};

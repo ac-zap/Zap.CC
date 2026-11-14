@@ -1,4 +1,4 @@
-﻿use std::sync::Arc;
+use std::sync::Arc;
 
 use zapclient_cluster::ProfileUpdate;
 use zapclient_cluster::profiles::get_profile_or_default;

@@ -1,4 +1,4 @@
-﻿use std::sync::{Arc, LazyLock};
+use std::sync::{Arc, LazyLock};
 
 use freya::prelude::*;
 use freya::text_edit::Clipboard;

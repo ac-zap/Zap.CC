@@ -1,4 +1,4 @@
-﻿use std::cell::Cell;
+use std::cell::Cell;
 use std::collections::HashMap;
 use std::fmt::Display;
 use std::sync::{LazyLock, RwLock};
@@ -6,7 +6,9 @@ use std::sync::{LazyLock, RwLock};
 use freya::prelude::State;
 
 static EN_US: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
-    serde_json::from_str(include_str!("../lang/en_us.json")).expect("lang/en_us.json is valid")
+    let raw = include_str!("../lang/en_us.json");
+    let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
+    serde_json::from_str(clean).expect("lang/en_us.json is valid")
 });
 
 static ACTIVE: RwLock<Option<&'static HashMap<String, String>>> = RwLock::new(None);

@@ -1,4 +1,4 @@
-﻿use super::*;
+use super::*;
 
 use zapclient_content::packages::ProviderId;
 use zapclient_content::packages::types::{ProjectDetail, ProjectMember, VersionSummary};

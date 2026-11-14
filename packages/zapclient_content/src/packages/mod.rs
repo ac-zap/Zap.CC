@@ -1,4 +1,4 @@
-﻿pub mod activity;
+pub mod activity;
 pub mod bad_modpacks;
 pub mod bad_mods;
 pub mod dependencies;

@@ -1,4 +1,4 @@
-﻿use zapclient_events::{EventBus, GroupedProgressSession};
+use zapclient_events::{EventBus, GroupedProgressSession};
 use tokio::sync::mpsc;
 use uuid::Uuid;
 

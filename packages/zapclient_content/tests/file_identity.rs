@@ -1,4 +1,4 @@
-﻿use zapclient_content::packages::curseforge_fingerprint;
+use zapclient_content::packages::curseforge_fingerprint;
 
 #[test]
 fn curseforge_fingerprint_ignores_padding_whitespace() {

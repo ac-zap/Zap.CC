@@ -1,4 +1,4 @@
-﻿use std::fmt::Write as _;
+use std::fmt::Write as _;
 use std::path::Path;
 use std::process::Stdio;
 use std::sync::Arc;

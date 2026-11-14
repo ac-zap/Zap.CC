@@ -1,4 +1,4 @@
-﻿use std::future::Future;
+use std::future::Future;
 use std::path::{Path, PathBuf};
 
 use freya::prelude::spawn_in_window;

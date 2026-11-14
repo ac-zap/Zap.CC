@@ -1,4 +1,4 @@
-﻿use freya::prelude::spawn_in_window;
+use freya::prelude::spawn_in_window;
 use zapclient_db::models::ClusterId;
 
 use super::actions::Actions;

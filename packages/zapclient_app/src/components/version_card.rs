@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_core::clusters::Cluster;
 
 use crate::components::cluster_menu::open_menu_at;

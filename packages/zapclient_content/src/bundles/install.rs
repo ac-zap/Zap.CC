@@ -1,4 +1,4 @@
-﻿use chrono::DateTime;
+use chrono::DateTime;
 use futures_util::StreamExt;
 use zapclient_db::dao::applied_migration as migration_dao;
 use zapclient_db::dao::artifact as artifact_dao;

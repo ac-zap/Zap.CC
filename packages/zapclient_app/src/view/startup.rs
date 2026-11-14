@@ -1,4 +1,4 @@
-﻿use freya::animation::{AnimNum, Ease, Function, OnCreation, OnFinish, use_animation};
+use freya::animation::{AnimNum, Ease, Function, OnCreation, OnFinish, use_animation};
 use freya::{prelude::*, router::*};
 
 use crate::AppAssets;

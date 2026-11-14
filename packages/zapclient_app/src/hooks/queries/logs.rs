@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use freya::query::{
     Mutation, MutationCapability, QueriesStorage, Query, QueryCapability, UseMutation, UseQuery,

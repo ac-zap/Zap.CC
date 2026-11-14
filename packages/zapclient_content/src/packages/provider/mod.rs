@@ -1,4 +1,4 @@
-﻿mod curseforge;
+mod curseforge;
 pub mod http;
 mod modrinth;
 mod registry;

@@ -1,4 +1,4 @@
-﻿use std::cmp::Ordering;
+use std::cmp::Ordering;
 
 use freya::prelude::spawn_in_window;
 use freya::radio::RadioStation;

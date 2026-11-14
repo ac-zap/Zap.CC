@@ -1,4 +1,4 @@
-﻿use std::time::Duration;
+use std::time::Duration;
 
 use zapclient_cluster::profiles::create_settings_profile;
 use zapclient_common::domain::GameLoader;

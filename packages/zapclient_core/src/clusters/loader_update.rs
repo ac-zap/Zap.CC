@@ -1,4 +1,4 @@
-﻿use std::sync::Arc;
+use std::sync::Arc;
 
 use zapclient_common::domain::{GameLoader, PackageUpdateMode};
 use zapclient_content::modpacks::is_newer_version;

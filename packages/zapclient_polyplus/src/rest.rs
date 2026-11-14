@@ -1,4 +1,4 @@
-﻿use reqwest::{Method, Url};
+use reqwest::{Method, Url};
 use serde::de::DeserializeOwned;
 use uuid::Uuid;
 

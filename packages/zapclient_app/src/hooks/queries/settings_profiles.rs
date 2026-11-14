@@ -1,4 +1,4 @@
-﻿use freya::query::{Query, QueryCapability, UseQuery, use_query};
+use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_cluster::profiles::{
     get_profile_or_default, list_named_profiles, resolve_cluster_profile,
 };

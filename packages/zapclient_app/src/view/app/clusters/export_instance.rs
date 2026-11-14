@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_core::clusters::{ExportMode, ExportOptions, SettingsChoice};
 use zapclient_core::sharing::{Collaborator, LinkedPush};
 

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_core::images::DEFAULT_IMAGE_EDGE;
 
 use crate::components::overlay_popup::OVERLAY_MAX_LEVEL;

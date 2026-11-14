@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_content::modpacks::{
     ModpackRelease, ModpackUpdateStatus, check_modpack_update, cluster_modpack,
 };

@@ -1,4 +1,4 @@
-﻿use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
 use std::fs::FileType;
 use std::path::{Path, PathBuf};
 

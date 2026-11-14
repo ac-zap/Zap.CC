@@ -1,4 +1,4 @@
-﻿use std::cmp::Ordering;
+use std::cmp::Ordering;
 use std::path::PathBuf;
 
 use crate::checker::{JavaCheckInfo, check_java_runtime};

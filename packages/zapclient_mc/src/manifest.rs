@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 use std::str::FromStr;
 
 use interfrost::api::minecraft::VersionManifest as VanillaManifest;

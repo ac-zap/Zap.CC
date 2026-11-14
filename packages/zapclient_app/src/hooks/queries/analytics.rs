@@ -1,4 +1,4 @@
-﻿use freya::query::{Query, QueryCapability, UseQuery, use_query};
+use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::LauncherError;
 use zapclient_core::game::{Analytics, cluster_analytics, global_analytics};
 

@@ -1,4 +1,4 @@
-﻿use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
 
 use zapclient_common::version::{VersionKey, parse_mc_version};
 

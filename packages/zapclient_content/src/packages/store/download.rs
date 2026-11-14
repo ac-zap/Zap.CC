@@ -1,4 +1,4 @@
-﻿use zapclient_db::dao::artifact as artifact_dao;
+use zapclient_db::dao::artifact as artifact_dao;
 use zapclient_db::models::ArtifactRow;
 
 use super::paths::{artifact_absolute_path, cache_file_path, relative_cache_path};

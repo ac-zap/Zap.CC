@@ -1,4 +1,4 @@
-﻿//! Only lists packages installed from the browser bundle content has its own flow
+//! Only lists packages installed from the browser bundle content has its own flow
 
 use std::collections::HashMap;
 

@@ -1,4 +1,4 @@
-﻿mod plan;
+mod plan;
 
 use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};

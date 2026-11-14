@@ -1,4 +1,4 @@
-﻿use zapclient_common::patch::Patch;
+use zapclient_common::patch::Patch;
 
 #[test]
 fn patch_apply_to_option() {

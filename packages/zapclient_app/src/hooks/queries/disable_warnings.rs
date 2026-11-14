@@ -1,4 +1,4 @@
-﻿use freya::query::{Query, QueryCapability, UseQuery, use_query};
+use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::{DisableWarnings, LauncherError, fetch_disable_warnings};
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]

@@ -1,4 +1,4 @@
-﻿//! Its own Freya window sharing no radio station or query storage with the main one all it needs is the process-wide channel in [`zapclient_core::logger::console`]
+//! Its own Freya window sharing no radio station or query storage with the main one all it needs is the process-wide channel in [`zapclient_core::logger::console`]
 
 use std::collections::VecDeque;
 use std::sync::{Arc, Mutex};

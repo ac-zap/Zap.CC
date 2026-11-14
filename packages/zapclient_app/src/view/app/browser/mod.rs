@@ -1,4 +1,4 @@
-﻿mod index;
+mod index;
 mod package;
 
 pub use index::Browser;

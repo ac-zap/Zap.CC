@@ -1,4 +1,4 @@
-﻿use std::path::{Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use crate::error::{ContentError, ContentResult};
 use zapclient_common::domain::{ContentType, ProviderId};

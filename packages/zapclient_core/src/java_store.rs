@@ -1,4 +1,4 @@
-﻿//! The adapter lives here rather than in `zapclient_java` so that crate builds
+//! The adapter lives here rather than in `zapclient_java` so that crate builds
 //! without sqlx and can test against `MemoryJavaStore`
 
 use std::str::FromStr;

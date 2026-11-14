@@ -1,4 +1,4 @@
-﻿use crate::{LauncherError, LauncherResult};
+use crate::{LauncherError, LauncherResult};
 use zapclient_common::paths;
 use zapclient_net::RequestClient;
 use zapclient_net::{EtagPolicy, fetch_cached};

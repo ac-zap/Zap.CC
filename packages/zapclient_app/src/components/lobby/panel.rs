@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_polyplus::party::{
     self, LocationKind, MAX_PARTY_SIZE, Party, PartyInvite, PartyMember,
 };

@@ -1,4 +1,4 @@
-﻿//! Runs under freya's `spawn` not `tokio::spawn` radio state is `!Send`
+//! Runs under freya's `spawn` not `tokio::spawn` radio state is `!Send`
 //! Events are batched and folded because a radio write wakes every subscriber
 
 use std::collections::{HashMap, HashSet};

@@ -1,4 +1,4 @@
-﻿use freya::query::{Query, QueryCapability, UseQuery, use_query};
+use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::{LauncherError, TermsDocument, fetch_terms};
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]

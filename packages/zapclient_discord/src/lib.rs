@@ -1,4 +1,4 @@
-﻿use std::sync::mpsc::{self, RecvTimeoutError, Sender};
+use std::sync::mpsc::{self, RecvTimeoutError, Sender};
 use std::time::{Duration, Instant};
 
 use discord_rich_presence::activity::{Activity, Assets, Button, Timestamps};

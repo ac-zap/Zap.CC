@@ -1,4 +1,4 @@
-﻿mod checker;
+mod checker;
 mod curseforge;
 mod duplicates;
 mod install;

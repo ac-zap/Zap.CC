@@ -1,4 +1,4 @@
-﻿{
+{
   "ZapClient.actions.bundle_added": "Added %s",
   "ZapClient.actions.bundle_update.some_failed": "Some mods failed to update",
   "ZapClient.actions.cloud_sync.added.body": "%s came from your other computers. Mods download from Modrinth or CurseForge the first time you play.",

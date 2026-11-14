@@ -1,4 +1,4 @@
-﻿use interfrost::api::minecraft::{Os, OsRule, Rule, RuleAction};
+use interfrost::api::minecraft::{Os, OsRule, Rule, RuleAction};
 
 use zapclient_common::os_ext::OsExt;
 

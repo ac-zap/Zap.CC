@@ -1,4 +1,4 @@
-﻿//! Launch prep catalog provisioning and version migrations stay in
+//! Launch prep catalog provisioning and version migrations stay in
 //! `zapclient_core` they need Java MC metadata and the package store
 //! No event bus here the network client exists only for mclo.gs uploads
 

@@ -1,4 +1,4 @@
-﻿use crate::bundles::manager::BundlesManager;
+use crate::bundles::manager::BundlesManager;
 use crate::bundles::types::{BundleArchive, BundleFile};
 use crate::ctx::ContentCtx;
 use crate::error::ContentResult;

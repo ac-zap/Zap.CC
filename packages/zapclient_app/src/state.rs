@@ -1,4 +1,4 @@
-﻿//! [`AppChannel`] gives per-concern subscription a single `watch` channel woke every
+//! [`AppChannel`] gives per-concern subscription a single `watch` channel woke every
 //! consumer and deep-cloned the inbox on every event
 
 use std::collections::{HashMap, HashSet};

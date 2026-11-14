@@ -1,4 +1,4 @@
-﻿use freya::{
+use freya::{
     animation::{AnimColor, AnimNum, Ease, Function, use_animation_transition},
     prelude::*,
 };

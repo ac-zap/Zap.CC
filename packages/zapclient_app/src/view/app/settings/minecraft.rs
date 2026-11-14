@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_common::Patch;
 use zapclient_core::settings::{
     GameSettingsProfile, PackageUpdateMode, ProfileUpdate, Resolution, SettingsOsExtra,

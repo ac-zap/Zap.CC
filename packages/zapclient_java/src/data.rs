@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use polyio::Checksum;
 use serde::{Deserialize, Serialize};

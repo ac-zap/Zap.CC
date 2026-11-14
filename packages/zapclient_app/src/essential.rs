@@ -1,4 +1,4 @@
-﻿use zapclient_content::packages::ProviderId;
+use zapclient_content::packages::ProviderId;
 
 use crate::i18n::t;
 

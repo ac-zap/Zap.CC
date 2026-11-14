@@ -1,4 +1,4 @@
-﻿use std::io::{Error, ErrorKind, Result};
+use std::io::{Error, ErrorKind, Result};
 use std::path::{Component, Path, PathBuf};
 
 use zapclient_common::domain::ContentType;

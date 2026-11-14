@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use freya::query::{QueriesStorage, Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::{

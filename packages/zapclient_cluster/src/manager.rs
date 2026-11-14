@@ -1,4 +1,4 @@
-﻿use zapclient_db::dao::{
+use zapclient_db::dao::{
     applied_migration as migration_dao, cluster as cluster_dao, setting_profile as profile_dao,
 };
 use zapclient_db::models::{ClusterId, ClusterKind, ClusterPatch, NewCluster};

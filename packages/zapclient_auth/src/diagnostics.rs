@@ -1,4 +1,4 @@
-﻿//! Adapted from Modrinth's `minecraft-auth-errors.ts`
+//! Adapted from Modrinth's `minecraft-auth-errors.ts`
 //! (GPL-3.0)
 
 use zapclient_net::{NetworkFailure, classify_network_failure};

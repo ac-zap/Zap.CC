@@ -1,4 +1,4 @@
-﻿/// `reqwest::Error`'s own `Display` stops at "error sending request for url"
+/// `reqwest::Error`'s own `Display` stops at "error sending request for url"
 /// the fact that names the failure lives further down the `source()` chain
 #[must_use]
 pub fn error_chain(err: &dyn std::error::Error) -> String {

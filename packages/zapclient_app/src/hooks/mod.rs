@@ -1,4 +1,4 @@
-﻿mod actions;
+mod actions;
 mod active_cluster;
 mod chat;
 mod debounce;

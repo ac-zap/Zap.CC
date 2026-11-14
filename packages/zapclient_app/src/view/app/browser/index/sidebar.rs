@@ -1,4 +1,4 @@
-﻿use super::*;
+use super::*;
 
 use crate::components::ScrollArea;
 use crate::i18n::t;

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::router::RouterContext;
 use zapclient_common::domain::ContentType;
 use zapclient_core::{BisectExit, BisectRole, BisectStatus};

@@ -1,4 +1,4 @@
-﻿//! Freya emits one `FileDrop` event per file within a single batch so the shell
+//! Freya emits one `FileDrop` event per file within a single batch so the shell
 //! handler accumulates them before the prompt first renders
 
 use std::collections::HashMap;

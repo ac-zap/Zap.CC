@@ -1,4 +1,4 @@
-﻿//! Fallback renderer for prompts no dedicated overlay claims
+//! Fallback renderer for prompts no dedicated overlay claims
 //! Without it an unrendered prompt leaves the core blocked on `ask()` blocking all later prompts
 
 use freya::prelude::*;

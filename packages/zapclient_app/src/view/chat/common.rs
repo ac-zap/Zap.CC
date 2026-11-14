@@ -1,4 +1,4 @@
-﻿use chrono::{DateTime, FixedOffset, Local};
+use chrono::{DateTime, FixedOffset, Local};
 use freya::prelude::*;
 use uuid::Uuid;
 

@@ -1,4 +1,4 @@
-﻿use freya::{prelude::*, router::RouterContext};
+use freya::{prelude::*, router::RouterContext};
 
 use crate::{
     Route,

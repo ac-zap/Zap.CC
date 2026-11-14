@@ -1,4 +1,4 @@
-﻿//! Games are spawned detached so sessions can outlive the launcher they are
+//! Games are spawned detached so sessions can outlive the launcher they are
 //! settled on the next start (rows with no `ended_at`)
 
 use std::path::{Path, PathBuf};

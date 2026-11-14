@@ -1,4 +1,4 @@
-﻿//! Lists the JDK packages each vendor currently publishes
+//! Lists the JDK packages each vendor currently publishes
 
 use std::env;
 

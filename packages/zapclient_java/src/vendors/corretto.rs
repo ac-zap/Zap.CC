@@ -1,4 +1,4 @@
-﻿use reqwest::{Method, Request};
+use reqwest::{Method, Request};
 use serde_json::Value;
 use url::Url;
 

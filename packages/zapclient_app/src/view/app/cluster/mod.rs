@@ -1,4 +1,4 @@
-﻿pub mod logs;
+pub mod logs;
 mod overview;
 pub(crate) mod package_manager;
 

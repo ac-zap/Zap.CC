@@ -1,4 +1,4 @@
-﻿use parking_lot::RwLock;
+use parking_lot::RwLock;
 
 use crate::{LauncherError, LauncherResult};
 use zapclient_common::paths;

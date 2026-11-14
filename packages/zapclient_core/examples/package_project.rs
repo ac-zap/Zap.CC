@@ -1,4 +1,4 @@
-﻿use std::env;
+use std::env;
 
 use zapclient_common::domain::ProviderId;
 use zapclient_core::{LauncherResult, dev, logger};

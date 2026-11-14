@@ -1,4 +1,4 @@
-﻿//! `cluster_artifacts` is unique on `(cluster_id, hash)` so duplicate versions
+//! `cluster_artifacts` is unique on `(cluster_id, hash)` so duplicate versions
 //! of one package are legal rows
 //! the newest stays enabled the rest are switched off rather than unlinked
 

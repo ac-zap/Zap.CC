@@ -1,4 +1,4 @@
-﻿use std::path::{Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use zapclient_db::DbPool;
 use zapclient_db::dao::{

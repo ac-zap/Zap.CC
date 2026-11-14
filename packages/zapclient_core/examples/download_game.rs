@@ -1,4 +1,4 @@
-﻿#![recursion_limit = "256"]
+#![recursion_limit = "256"]
 use zapclient_common::domain::GameLoader;
 use zapclient_core::LauncherResult;
 use zapclient_core::clusters::CreateClusterOptions;

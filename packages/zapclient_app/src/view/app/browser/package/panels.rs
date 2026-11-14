@@ -1,4 +1,4 @@
-﻿use super::*;
+use super::*;
 
 use zapclient_content::packages::markdown::normalize_markdown;
 use zapclient_content::packages::types::{

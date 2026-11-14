@@ -1,4 +1,4 @@
-﻿//! The Modrinth App keeps everything in `app.db` (SQLite) next to a
+//! The Modrinth App keeps everything in `app.db` (SQLite) next to a
 //! `profiles/` folder holding each instance's game directory
 //!
 //! Two schemas are in circulation: the `profiles` table every release up to

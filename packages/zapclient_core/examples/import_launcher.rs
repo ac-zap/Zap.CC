@@ -1,4 +1,4 @@
-﻿#![recursion_limit = "256"]
+#![recursion_limit = "256"]
 //! Detects Prism / MultiMC / Modrinth App installs and imports every instance
 //! into a throwaway launcher dir under `target/`
 //!

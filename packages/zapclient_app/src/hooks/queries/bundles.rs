@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 use std::sync::Arc;
 
 use freya::query::{Query, QueryCapability, UseQuery, use_query};

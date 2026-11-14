@@ -1,4 +1,4 @@
-﻿use zapclient_cluster::naming::validate_instance_name;
+use zapclient_cluster::naming::validate_instance_name;
 
 use super::data::Picks;
 use super::model::{

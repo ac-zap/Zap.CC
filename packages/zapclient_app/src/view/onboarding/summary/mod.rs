@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::router::RouterContext;
 use zapclient_core::clusters::Cluster;
 use zapclient_core::images::BACKGROUND_IMAGE_EDGE;

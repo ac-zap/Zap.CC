@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{Button, Icon, IconType, OverlayPopup, TextInput};
 use crate::i18n::t;

@@ -1,4 +1,4 @@
-﻿use zapclient_common::GameLoader;
+use zapclient_common::GameLoader;
 use zapclient_core::LinkedArtifactInfo;
 use zapclient_core::versions::VersionMetadata;
 

@@ -1,4 +1,4 @@
-﻿use std::collections::HashMap;
+use std::collections::HashMap;
 
 use freya::prelude::spawn_in_window;
 use std::collections::HashSet;

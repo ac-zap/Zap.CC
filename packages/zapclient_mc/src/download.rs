@@ -1,4 +1,4 @@
-﻿use zapclient_events::{EventBus, GroupedProgressSession, TaskCategory};
+use zapclient_events::{EventBus, GroupedProgressSession, TaskCategory};
 use zapclient_net::RequestClient;
 
 use crate::error::McResult;

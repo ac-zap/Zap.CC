@@ -1,4 +1,4 @@
-﻿mod launcher;
+mod launcher;
 
 pub mod data_dir;
 

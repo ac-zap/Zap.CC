@@ -1,4 +1,4 @@
-﻿//! Construct [`AuthService`] in the composition layer and pass it down nothing
+//! Construct [`AuthService`] in the composition layer and pass it down nothing
 //! in here reaches for a global or a database
 //! Accounts persist to `auth.json`
 

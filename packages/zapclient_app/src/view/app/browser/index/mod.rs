@@ -1,4 +1,4 @@
-﻿use std::time::Duration;
+use std::time::Duration;
 
 use freya::animation::{
     AnimNum, Ease, Function, OnChange, OnCreation, use_animation_with_dependencies,

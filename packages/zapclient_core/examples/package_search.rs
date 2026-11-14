@@ -1,4 +1,4 @@
-﻿use std::env;
+use std::env;
 
 use zapclient_common::domain::{ContentType, ProviderId};
 use zapclient_content::packages::types::SearchFilters;

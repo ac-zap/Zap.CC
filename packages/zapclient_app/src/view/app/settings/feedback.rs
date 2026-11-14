@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use crate::components::{Button, TextInput};
 use crate::layout::{SettingsShell, SettingsTab};

@@ -1,4 +1,4 @@
-﻿use zapclient_core::dev;
+use zapclient_core::dev;
 use zapclient_core::game::download_to_path;
 use zapclient_events::{GroupedProgressSession, TaskCategory};
 use polyio::testing::ScratchDir as Scratch;

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::router::*;
 use zapclient_cluster::Cluster;
 use zapclient_core::LauncherState;

@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_content::packages::ProviderId;
 
 use crate::components::{Icon, IconType, github_badge, provider_badge};

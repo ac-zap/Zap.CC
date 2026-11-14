@@ -1,4 +1,4 @@
-﻿#[derive(Debug, Default, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct Cli {
     pub launch: Option<String>,
     pub share: Option<String>,

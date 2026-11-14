@@ -1,4 +1,4 @@
-﻿use freya::{
+use freya::{
     animation::{AnimNum, Ease, use_animation},
     prelude::*,
 };

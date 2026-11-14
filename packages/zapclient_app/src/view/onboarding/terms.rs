@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use freya::query::UseQuery;
 use freya::router::RouterContext;
 

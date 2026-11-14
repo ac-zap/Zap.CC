@@ -1,4 +1,4 @@
-﻿use std::{path::PathBuf, str::FromStr};
+use std::{path::PathBuf, str::FromStr};
 
 use zapclient_events::{EventBus, GroupedProgressSession};
 use zapclient_net::RequestClient;

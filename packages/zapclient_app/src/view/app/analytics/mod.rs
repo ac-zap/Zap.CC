@@ -1,4 +1,4 @@
-﻿use chrono::{Duration, Local};
+use chrono::{Duration, Local};
 use freya::prelude::*;
 
 use zapclient_core::game::{Analytics, DayPlaytime, PlaytimeStats};

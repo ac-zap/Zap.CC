@@ -1,4 +1,4 @@
-﻿//! Turning a package off, and everything that has to go off with it.
+//! Turning a package off, and everything that has to go off with it.
 //!
 //! Every way to disable a package in the UI comes through here, so the warning
 //! cannot be skipped by taking a different route to the same switch. The flow

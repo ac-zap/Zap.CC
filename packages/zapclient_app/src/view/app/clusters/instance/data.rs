@@ -1,4 +1,4 @@
-﻿use std::collections::{HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 
 use zapclient_cluster::naming::{MAX_NAME_CHARS, validate_instance_name};

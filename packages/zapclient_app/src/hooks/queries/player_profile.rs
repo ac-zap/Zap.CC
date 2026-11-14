@@ -1,4 +1,4 @@
-﻿use std::time::Duration;
+use std::time::Duration;
 
 use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_core::LauncherError;

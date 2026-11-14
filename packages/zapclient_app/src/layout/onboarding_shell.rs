@@ -1,4 +1,4 @@
-﻿use std::collections::HashSet;
+use std::collections::HashSet;
 
 use freya::prelude::*;
 use freya::router::{Outlet, use_route};

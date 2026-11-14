@@ -1,4 +1,4 @@
-﻿//! Bundle-tracked artifacts are skipped
+//! Bundle-tracked artifacts are skipped
 //! [`crate::bundles::updates`] owns those files and the two flows would fight
 //! over the same artifact
 //!

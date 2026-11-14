@@ -1,4 +1,4 @@
-﻿mod account;
+mod account;
 mod bundles;
 mod language;
 mod location;

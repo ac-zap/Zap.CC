@@ -1,4 +1,4 @@
-﻿use freya::engine::prelude::{Paint, PaintStyle, PathBuilder, SkColor, SkRect};
+use freya::engine::prelude::{Paint, PaintStyle, PathBuilder, SkColor, SkRect};
 use freya::prelude::*;
 
 use crate::i18n::t;

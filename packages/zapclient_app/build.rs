@@ -1,4 +1,4 @@
-﻿fn main() {
+fn main() {
     #[cfg(windows)]
     {
         let mut res = winresource::WindowsResource::new();

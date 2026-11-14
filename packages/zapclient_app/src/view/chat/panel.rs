@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use uuid::Uuid;
 
 use crate::components::{IconType, PartyTab};

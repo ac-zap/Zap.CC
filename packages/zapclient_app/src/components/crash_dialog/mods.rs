@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 
 use zapclient_common::domain::{ContentType, ProviderId};
 use zapclient_events::{CrashMod, CrashModAction, CrashModIssue, GameCrash};

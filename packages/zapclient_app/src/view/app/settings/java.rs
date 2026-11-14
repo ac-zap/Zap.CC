@@ -1,4 +1,4 @@
-﻿use std::path::Path;
+use std::path::Path;
 
 use freya::prelude::*;
 use zapclient_java::{JavaRuntime, JavaVendor, is_launcher_managed};

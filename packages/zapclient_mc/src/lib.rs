@@ -1,4 +1,4 @@
-﻿//! No database here this crate works against paths so the download planner is
+//! No database here this crate works against paths so the download planner is
 //! testable on its own
 
 use zapclient_events::EventBus;

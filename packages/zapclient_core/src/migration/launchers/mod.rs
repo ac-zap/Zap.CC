@@ -1,4 +1,4 @@
-﻿//! Imports instances from third-party launchers (Prism and its MultiMC
+//! Imports instances from third-party launchers (Prism and its MultiMC
 //! relatives, the Modrinth App)
 //!
 //! Unlike the onboarding migration these never map onto ZapClient's curated

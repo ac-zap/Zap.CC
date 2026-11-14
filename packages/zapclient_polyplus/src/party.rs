@@ -1,4 +1,4 @@
-﻿use std::sync::LazyLock;
+use std::sync::LazyLock;
 
 use chrono::{DateTime, Utc};
 use reqwest::{Method, StatusCode};

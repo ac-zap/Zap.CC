@@ -1,4 +1,4 @@
-﻿use std::sync::Arc;
+use std::sync::Arc;
 
 use zapclient_db::DbPool;
 use zapclient_db::dao::game_session as session_dao;

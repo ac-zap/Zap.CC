@@ -1,4 +1,4 @@
-﻿#![recursion_limit = "256"]
+#![recursion_limit = "256"]
 
 use zapclient_common::domain::{ContentType, GameLoader};
 use zapclient_content::packages::PackageStore;

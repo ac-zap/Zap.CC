@@ -1,4 +1,4 @@
-﻿mod analytics;
+mod analytics;
 mod error;
 pub mod fabric;
 mod folder_packs;

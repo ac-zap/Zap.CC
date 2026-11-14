@@ -1,4 +1,4 @@
-﻿use zapclient_events::{CrashMod, CrashModAction, CrashModIssue, CrashModIssueKind, VersionRange};
+use zapclient_events::{CrashMod, CrashModAction, CrashModIssue, CrashModIssueKind, VersionRange};
 
 pub(crate) const MAX_PROBLEMS: usize = 256;
 const MAX_DESCRIBED: usize = 4;

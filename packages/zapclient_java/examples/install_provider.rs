@@ -1,4 +1,4 @@
-﻿//! Downloads and probes one vendor's JDK then records it in an in-memory store
+//! Downloads and probes one vendor's JDK then records it in an in-memory store
 
 use std::env;
 

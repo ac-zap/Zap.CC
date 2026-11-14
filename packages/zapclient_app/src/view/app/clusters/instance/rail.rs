@@ -1,4 +1,4 @@
-﻿use freya::prelude::*;
+use freya::prelude::*;
 use zapclient_common::domain::GameLoader;
 use zapclient_common::parse_mc_version;
 

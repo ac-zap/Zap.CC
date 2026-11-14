@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 
 use freya::query::{Query, QueryCapability, UseQuery, use_query};
 use zapclient_common::domain::GraphicsBackend;

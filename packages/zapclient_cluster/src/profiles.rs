@@ -1,4 +1,4 @@
-﻿//! A profile is a sparse override on the global baseline a `None` field
+//! A profile is a sparse override on the global baseline a `None` field
 //! inherits so `Patch::Clear` means "inherit again" not "set to nothing"
 //! The baseline is passed in so this crate needn't depend on launcher config
 

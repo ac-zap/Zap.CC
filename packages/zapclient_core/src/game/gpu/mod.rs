@@ -1,4 +1,4 @@
-﻿#[cfg(any(target_os = "linux", all(test, unix)))]
+#[cfg(any(target_os = "linux", all(test, unix)))]
 mod linux;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
