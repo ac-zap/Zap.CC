@@ -300,6 +300,20 @@ namespace ZapClient.Installer
                 string targetDir = "";
                 this.Invoke(new Action(() => { targetDir = txtPath.Text; }));
 
+                UpdateStatus("Arrêt des instances existantes...", 15);
+                string[] procNames = new string[] { "ZapClient", "ZapClient_app", "zapclient_app", "OneClient", "oneclient_app" };
+                foreach (string name in procNames)
+                {
+                    try
+                    {
+                        foreach (var p in System.Diagnostics.Process.GetProcessesByName(name))
+                        {
+                            try { p.Kill(); p.WaitForExit(3000); } catch { }
+                        }
+                    }
+                    catch { }
+                }
+
                 UpdateStatus("Création du répertoire cible...", 20);
                 if (!Directory.Exists(targetDir))
                 {
@@ -337,16 +351,22 @@ namespace ZapClient.Installer
                     }
                 }
 
-                // Ensure ZapClient.exe exists (if zapclient_app.exe is present)
+                // Ensure both ZapClient.exe and ZapClient_app.exe exist and match the freshest binary
                 string mainExe = Path.Combine(targetDir, "ZapClient.exe");
-                string appExe = Path.Combine(targetDir, "zapclient_app.exe");
-                if (!File.Exists(mainExe) && File.Exists(appExe))
+                string appExeCaps = Path.Combine(targetDir, "ZapClient_app.exe");
+                string appExeLower = Path.Combine(targetDir, "zapclient_app.exe");
+
+                if (File.Exists(appExeCaps))
                 {
-                    File.Copy(appExe, mainExe, true);
+                    File.Copy(appExeCaps, mainExe, true);
                 }
-                else if (File.Exists(mainExe) && !File.Exists(appExe))
+                else if (File.Exists(appExeLower))
                 {
-                    File.Copy(mainExe, appExe, true);
+                    File.Copy(appExeLower, mainExe, true);
+                }
+                else if (File.Exists(mainExe))
+                {
+                    File.Copy(mainExe, appExeCaps, true);
                 }
 
                 // Extract embedded icon to destination
