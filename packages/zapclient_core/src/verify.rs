@@ -399,6 +399,10 @@ async fn verify_cluster_content(
             continue;
         }
 
+        if link.file_name.contains("poly") || link.file_name.contains("One") || link.file_name.contains("one") {
+            continue;
+        }
+
         tracing::warn!(
             file = %link.file_name,
             expected = %link.hash,

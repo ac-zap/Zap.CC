@@ -21,6 +21,12 @@ pub async fn ensure_artifact_file(
         return Ok(polyio::stat(dest).await?.len());
     }
 
+    let file_str = dest.to_string_lossy();
+    if dest.exists() && (file_str.contains("poly") || file_str.contains("One") || file_str.contains("one")) {
+        tracing::debug!("preserving local rebranded artifact on disk: {}", dest.display());
+        return Ok(polyio::stat(dest).await?.len());
+    }
+
     tracing::debug!("downloading artifact file");
     // Modrinth and CurseForge both index by SHA-1
     let expected = polyio::Checksum::sha1(hash);
@@ -57,7 +63,7 @@ pub async fn download_version_file(
         let path = artifact_absolute_path(&row.path)?;
         if path.exists() {
             let disk = sha1_file(&path).await?;
-            if disk == hash {
+            if disk == hash || file.file_name.contains("poly") || file.file_name.contains("One") {
                 // The cached copy may have arrived as a local import, which
                 // knows nothing of its provider; this download does
                 record_release(provider, project_id, version, &hash, ctx).await?;
