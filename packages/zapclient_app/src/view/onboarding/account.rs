@@ -153,7 +153,7 @@ fn account_card(
                                 .text(badge_text)
                                 .font_size(text_size(12.))
                                 .color(if is_offline {
-                                    colors::accent()
+                                    colors::brand()
                                 } else {
                                     colors::fg_secondary()
                                 }),
