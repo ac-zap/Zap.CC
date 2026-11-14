@@ -89,7 +89,7 @@ fn active_issues(c: &Conditions) -> Vec<Issue> {
         Issue::NoInternet,
         Issue::SignedOut,
         Issue::McAuthDown,
-        Issue::ZAPDown,
+        Issue::ZapDown,
     ]
     .into_iter()
     .filter(|i| i.is_active(c))
