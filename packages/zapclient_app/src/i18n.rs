@@ -8,7 +8,18 @@ use freya::prelude::State;
 static EN_US: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
     let raw = include_str!("../lang/en_us.json");
     let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
-    serde_json::from_str(clean).expect("lang/en_us.json is valid")
+    let parsed: HashMap<String, String> =
+        serde_json::from_str(clean).expect("lang/en_us.json is valid");
+    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    for (k, v) in parsed {
+        if let Some(rest) = k.strip_prefix("ZapClient.") {
+            normalized.insert(format!("zapclient.{rest}"), v.clone());
+        } else if let Some(rest) = k.strip_prefix("zapclient.") {
+            normalized.insert(format!("ZapClient.{rest}"), v.clone());
+        }
+        normalized.insert(k, v);
+    }
+    normalized
 });
 
 static ACTIVE: RwLock<Option<&'static HashMap<String, String>>> = RwLock::new(None);
