@@ -1,7 +1,7 @@
-# Zap Client ⚡
+﻿# Zenith Client ⚡
 
 <p align="center">
-  <img src=".github/media/RepoBanner.png" alt="Zap Client Banner" width="100%">
+  <img src=".github/media/RepoBanner.png" alt="Zenith Client Banner" width="100%">
 </p>
 
 <p align="center">
@@ -65,10 +65,10 @@ Téléchargez la dernière version compilée pour votre système d'exploitation 
 
 2. **Compiler le client en mode release :**
    ```bash
-   cargo build --release --bin zapclient_app
+   cargo build --release --bin zenithclient_app
    ```
 
-L'exécutable compilé sera disponible dans `target/release/zapclient_app` (ou `zapclient_app.exe` sous Windows).
+L'exécutable compilé sera disponible dans `target/release/zenithclient_app` (ou `zenithclient_app.exe` sous Windows).
 
 ---
 
@@ -78,7 +78,7 @@ L'exécutable compilé sera disponible dans `target/release/zapclient_app` (ou `
 - [Politique de confidentialité (PRIVACY.md)](PRIVACY.md)
 - [Guide de contribution (CONTRIBUTING.md)](CONTRIBUTING.md)
 
-*Zap Client est un projet indépendant open source et n'est en aucun cas affilié à Mojang Studios, Microsoft, ou Minecraft.*
+*Zenith Client est un projet indépendant open source et n'est en aucun cas affilié à Mojang Studios, Microsoft, ou Minecraft.*
 
 ---
 

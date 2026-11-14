@@ -1,4 +1,4 @@
-[workspace]
+﻿[workspace]
 members = [
   "packages/*",
 ]
@@ -6,12 +6,12 @@ resolver = "3"
 
 [workspace.package]
 authors = [
-  "Zap.cc",
-  "Zap Contributors",
+  "ZenithClient",
+  "Zenith Contributors",
 ]
 documentation = "https://github.com/ac-zap/Zap.CC"
 edition = "2024"
-homepage = "https://zap.cc"
+homepage = "https://github.com/ac-zap/Zap.CC"
 license = "GPL-3.0-only"
 readme = "README.md"
 repository = "https://github.com/ac-zap/Zap.CC"
@@ -20,19 +20,19 @@ version = "2.10.1"
 
 [workspace.dependencies]
 # core
-zapclient_auth = {path = "./packages/zapclient_auth"}
-zapclient_cluster = {path = "./packages/zapclient_cluster"}
-zapclient_common = {path = "./packages/zapclient_common"}
-zapclient_content = {path = "./packages/zapclient_content"}
-zapclient_core = {path = "./packages/zapclient_core"}
-zapclient_db = {path = "./packages/zapclient_db"}
-zapclient_discord = {path = "./packages/zapclient_discord"}
-zapclient_events = {path = "./packages/zapclient_events"}
-zapclient_java = {path = "./packages/zapclient_java"}
-zapclient_macro = {path = "./packages/zapclient_macro"}
-zapclient_mc = {path = "./packages/zapclient_mc"}
-zapclient_net = {path = "./packages/zapclient_net"}
-zapclient_polyplus = {path = "./packages/zapclient_polyplus"}
+zenithclient_auth = {path = "./packages/zenithclient_auth"}
+zenithclient_cluster = {path = "./packages/zenithclient_cluster"}
+zenithclient_common = {path = "./packages/zenithclient_common"}
+zenithclient_content = {path = "./packages/zenithclient_content"}
+zenithclient_core = {path = "./packages/zenithclient_core"}
+zenithclient_db = {path = "./packages/zenithclient_db"}
+zenithclient_discord = {path = "./packages/zenithclient_discord"}
+zenithclient_events = {path = "./packages/zenithclient_events"}
+zenithclient_java = {path = "./packages/zenithclient_java"}
+zenithclient_macro = {path = "./packages/zenithclient_macro"}
+zenithclient_mc = {path = "./packages/zenithclient_mc"}
+zenithclient_net = {path = "./packages/zenithclient_net"}
+zenithclient_polyplus = {path = "./packages/zenithclient_polyplus"}
 polyio = {path = "./packages/polyio"}
 
 # core (extra)

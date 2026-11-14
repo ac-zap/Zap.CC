@@ -1,6 +1,6 @@
-# Contribuer à Zap Client ⚡
+﻿# Contribuer à Zenith Client ⚡
 
-Merci de vous intéresser au développement de **Zap Client** ! Les contributions de la communauté (code, traductions, signalement de bugs, suggestions) sont les bienvenues.
+Merci de vous intéresser au développement de **Zenith Client** ! Les contributions de la communauté (code, traductions, signalement de bugs, suggestions) sont les bienvenues.
 
 ---
 
@@ -39,5 +39,5 @@ Les idées de nouvelles fonctionnalités sont les bienvenues ! Ouvrez une issue 
 
 ## ⚖️ Accord de licence
 
-En contribuant à Zap Client, vous acceptez expressément que vos contributions soient distribuées sous la licence **GNU General Public License v3.0 (GPL-3.0)**.
+En contribuant à Zenith Client, vous acceptez expressément que vos contributions soient distribuées sous la licence **GNU General Public License v3.0 (GPL-3.0)**.
 

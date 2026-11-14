@@ -1,11 +1,11 @@
-name: Crowdin
+﻿name: Crowdin
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'packages/zapclient_app/lang/en_us.json'
+      - 'packages/zenithclient_app/lang/en_us.json'
       - 'crowdin.yml'
       - '.github/crowdin/**'
       - '.github/workflows/crowdin.yml'
@@ -70,7 +70,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: auto
       AWS_ENDPOINT_URL: ${{ vars.R2_ENDPOINT }}
-      R2_TARGET: s3://${{ vars.R2_BUCKET }}/ZapClient/v1
+      R2_TARGET: s3://${{ vars.R2_BUCKET }}/ZenithClient/v1
 
     steps:
       - name: Checkout

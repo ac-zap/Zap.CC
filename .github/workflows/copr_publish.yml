@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag (e.g. zapclient-2.0.1)'
+        description: 'Release tag (e.g. zenithclient-2.0.1)'
         required: true
 
 jobs:
@@ -19,10 +19,10 @@ jobs:
         id: parse
         run: |
           TAG="${{ github.event.release.tag_name || inputs.tag }}"
-          if [[ "$TAG" =~ ^zapclient-(.+)$ ]]; then
+          if [[ "$TAG" =~ ^zenithclient-(.+)$ ]]; then
             echo "version=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
           else
-            echo "::error::Tag '$TAG' does not match zapclient-*"
+            echo "::error::Tag '$TAG' does not match zenithclient-*"
             exit 1
           fi
 
@@ -40,15 +40,15 @@ jobs:
         env:
           VERSION: ${{ needs.resolve.outputs.version }}
         run: |
-          SPEC="distribution/copr/zapclient-bin.spec"
+          SPEC="distribution/copr/zenithclient-bin.spec"
           sed -i "s/^Version:.*/Version:        ${VERSION}/" "$SPEC"
           sed -i "s/^Release:.*/Release:        1%{?dist}/" "$SPEC"
 
       - name: Build SRPM
         run: |
           rpmdev-setuptree
-          spectool -g -R distribution/copr/zapclient-bin.spec
-          rpmbuild -bs distribution/copr/zapclient-bin.spec
+          spectool -g -R distribution/copr/zenithclient-bin.spec
+          rpmbuild -bs distribution/copr/zenithclient-bin.spec
 
       - name: Submit to COPR
         env:
@@ -57,4 +57,4 @@ jobs:
           mkdir -p ~/.config
           printf '%s' "$COPR_CONFIG_CONTENT" > ~/.config/copr
           chmod 600 ~/.config/copr
-          copr-cli build ac-zap/Zap.CC ~/rpmbuild/SRPMS/zapclient-bin-*.src.rpm
+          copr-cli build ac-zap/Zap.CC ~/rpmbuild/SRPMS/zenithclient-bin-*.src.rpm

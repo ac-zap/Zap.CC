@@ -24,10 +24,10 @@ jobs:
         run: |
           gh api "repos/$GH_REPO/releases?per_page=50" --jq '[.[]
             | select(.draft | not)
-            | select(.tag_name | startswith("zapclient-"))
+            | select(.tag_name | startswith("zenithclient-"))
             | {
-                version: (.tag_name | ltrimstr("zapclient-")),
-                body: ((.body // "") | sub("^Automated release for ZapClient [^\n]*\\s*"; ""))
+                version: (.tag_name | ltrimstr("zenithclient-")),
+                body: ((.body // "") | sub("^Automated release for ZenithClient [^\n]*\\s*"; ""))
               }]' > changelog.json
           jq -r '.[].version' changelog.json
 
