@@ -1,14 +1,14 @@
 {
-  "name": "Zap Dark",
+  "name": "Zenith Dark",
   "colors": {
     "light": false,
-    "page": "#0B0F17",
-    "page_elevated": "#111622",
-    "card": "#161C2B",
-    "component": "#1D2538",
-    "border": "#385CFF26",
-    "text": "#F0F4FF",
-    "text_secondary": "#8593A8",
-    "accent": "#385CFF"
+    "page": "#0A1128",
+    "page_elevated": "#101B3D",
+    "card": "#14214B",
+    "component": "#1A2B5E",
+    "border": "#38BDF826",
+    "text": "#F1F5F9",
+    "text_secondary": "#BAE6FD",
+    "accent": "#38BDF8"
   }
 }

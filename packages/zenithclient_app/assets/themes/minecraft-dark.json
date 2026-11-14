@@ -1,5 +1,5 @@
 {
-  "name": "Zap Minecraft Dark",
+  "name": "Zenith Minecraft Dark",
   "radius_scale": 0,
   "font": "Minecraft",
   "mono_font": "Minecraft",
@@ -7,13 +7,13 @@
   "pixel_icons": true,
   "colors": {
     "light": false,
-    "page": "#0D1117",
-    "page_elevated": "#141A22",
-    "card": "#181F28",
-    "component": "#1F2833",
-    "border": "#FFFFFF1A",
-    "text": "#E6EBFF",
-    "text_secondary": "#7E8A9E",
-    "accent": "#385CFF"
+    "page": "#0A1128",
+    "page_elevated": "#101B3D",
+    "card": "#14214B",
+    "component": "#1A2B5E",
+    "border": "#38BDF826",
+    "text": "#F1F5F9",
+    "text_secondary": "#BAE6FD",
+    "accent": "#38BDF8"
   }
 }

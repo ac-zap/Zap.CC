@@ -18,14 +18,14 @@ use zenithclient_app::{
 use std::cell::Cell;
 use tokio::runtime::Builder;
 
-struct ZapClientApp {
+struct ZenithClientApp {
     needs_location: bool,
     start_maximized: bool,
     boot_launch: Cell<Option<String>>,
     boot_share: Cell<Option<String>>,
 }
 
-impl App for ZapClientApp {
+impl App for ZenithClientApp {
     fn render(&self) -> impl IntoElement {
         let needs_location = self.needs_location;
 
@@ -236,7 +236,7 @@ fn main() {
     let start_maximized = settings.start_maximized;
     let show_tray_icon = settings.show_tray_icon;
 
-    let window_config = WindowConfig::new_app(ZapClientApp {
+    let window_config = WindowConfig::new_app(ZenithClientApp {
         needs_location,
         start_maximized,
         boot_launch: Cell::new(cli.launch.clone()),
@@ -286,12 +286,8 @@ fn main() {
     let mut launch_config = LaunchConfig::new()
         .with_window(window_config)
         .with_gpu_resource_cache_limit(
-            std::env::var("ZAPCLIENT_GPU_CACHE_BYTES")
-                .or_else(|_| {
-                    std::env::var("zenithclient_GPU_CACHE_BYTES").inspect(|_| {
-                        tracing::warn!("zenithclient_GPU_CACHE_BYTES is deprecated, use ZAPCLIENT_GPU_CACHE_BYTES");
-                    })
-                })
+            std::env::var("ZENITHCLIENT_GPU_CACHE_BYTES")
+                .or_else(|_| std::env::var("ZAPCLIENT_GPU_CACHE_BYTES"))
                 .ok()
                 .and_then(|v| v.parse::<usize>().ok())
                 .unwrap_or(128 * 1024 * 1024),

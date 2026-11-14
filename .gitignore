@@ -4,6 +4,8 @@
 OneLauncher.iml
 
 /packages/oneclient_app/icons/generated/
+/packages/zenithclient_app/icons/generated/
 
 artifacts_out/
-
+ZenithInstaller.exe
+*.ps1
