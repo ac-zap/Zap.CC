@@ -76,7 +76,13 @@ pub fn subscribe() -> watch::Receiver<u64> {
 }
 
 pub fn available() -> Vec<String> {
-    AVAILABLE.read().unwrap_or_else(|e| e.into_inner()).clone()
+    let mut list = AVAILABLE.read().unwrap_or_else(|e| e.into_inner()).clone();
+    for builtin in ["fr_FR", "es_ES"] {
+        if !list.iter().any(|c| c.eq_ignore_ascii_case(builtin)) {
+            list.push(builtin.to_string());
+        }
+    }
+    list
 }
 
 pub fn names(code: Option<&str>) -> (String, String) {
@@ -103,7 +109,7 @@ pub fn coverage(code: Option<&str>) -> Option<u32> {
         Some(code) if WANTED.read().unwrap_or_else(|e| e.into_inner()).as_deref() == Some(code) => {
             i18n::coverage()
         }
-        Some(_) => None,
+        Some(code) => i18n::builtin_coverage(code),
     }
 }
 
@@ -225,7 +231,8 @@ fn install_cached(code: Option<&str>) {
     let table = code
         .and_then(newest_cached)
         .and_then(|path| std::fs::read(path).ok())
-        .and_then(|bytes| parse_translations(&bytes));
+        .and_then(|bytes| parse_translations(&bytes))
+        .or_else(|| code.and_then(i18n::builtin_table));
     i18n::install(table);
     notify_changed();
 }
@@ -269,7 +276,7 @@ fn parse_manifest(bytes: &[u8]) -> Option<Manifest> {
                 .filter_map(|p| p.as_str())
                 .find(|path| {
                     path.starts_with("/translations/")
-                        && path.ends_with(&format!("/{FILE_NAME}"))
+                        && (path.ends_with("/oneclient.json") || path.ends_with("/zapclient.json"))
                         && !path.contains("..")
                 })?;
             Some((code.clone(), path.to_string()))
@@ -284,9 +291,20 @@ fn parse_translations(bytes: &[u8]) -> Option<HashMap<String, String>> {
     let table: HashMap<String, String> = parsed
         .into_iter()
         .filter_map(|(key, value)| {
-            let value = value.as_str()?.to_string();
+            let mut value = value.as_str()?.to_string();
+            let key = if let Some(rest) = key.strip_prefix("oneclient.") {
+                format!("zapclient.{rest}")
+            } else if let Some(rest) = key.strip_prefix("OneClient.") {
+                format!("ZapClient.{rest}")
+            } else {
+                key
+            };
             let english = source.get(&key)?;
-            (i18n::arity(english) == i18n::arity(&value)).then_some((key, value))
+            if i18n::arity(english) != i18n::arity(&value) {
+                return None;
+            }
+            value = value.replace("OneClient", "ZapClient").replace("One Client", "Zap Client");
+            Some((key, value))
         })
         .collect();
     (!table.is_empty()).then_some(table)

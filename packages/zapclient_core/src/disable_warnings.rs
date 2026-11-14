@@ -7,7 +7,7 @@ use zapclient_common::paths;
 use zapclient_net::RequestClient;
 use zapclient_net::{EtagPolicy, fetch_cached};
 
-const MESSAGES_DIR: &str = "/ZapClient/bundles/disable-warnings/";
+const MESSAGES_DIR: &str = "/oneclient/bundles/disable-warnings/";
 
 #[derive(Debug, Default, Deserialize)]
 struct Manifest {
@@ -85,7 +85,7 @@ fn resolve(manifest: Manifest, bodies: &HashMap<String, String>) -> DisableWarni
 #[tracing::instrument(level = "debug", skip(net))]
 pub async fn fetch_disable_warnings(net: &RequestClient) -> LauncherResult<DisableWarnings> {
     let url = format!(
-        "{}/ZapClient/bundles/disable-warnings.json",
+        "{}/oneclient/bundles/disable-warnings.json",
         net.config().meta_url_base
     );
     let cache_path = paths::caches_dir()?.join("disable-warnings.json");

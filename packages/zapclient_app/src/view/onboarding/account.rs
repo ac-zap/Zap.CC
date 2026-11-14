@@ -182,16 +182,16 @@ fn account_selection(
 
     rect()
         .vertical()
-        .spacing(14.)
+        .spacing(16.)
         .width(Size::fill())
         // Microsoft Option Card
         .child(
             rect()
                 .vertical()
                 .width(Size::fill())
-                .spacing(10.)
-                .padding(Gaps::new_all(14.))
-                .corner_radius(rounded(10.))
+                .spacing(12.)
+                .padding(Gaps::new_all(16.))
+                .corner_radius(rounded(12.))
                 .background(colors::component_bg())
                 .border(border_all_color(1., colors::component_border()))
                 .child(
@@ -199,22 +199,22 @@ fn account_selection(
                         .horizontal()
                         .width(Size::fill())
                         .cross_align(Alignment::Center)
-                        .spacing(12.)
+                        .spacing(14.)
                         .child(
                             rect()
                                 .vertical()
                                 .width(Size::flex(1.0))
-                                .spacing(2.)
+                                .spacing(4.)
                                 .child(
                                     label()
                                         .text("Compte Microsoft")
-                                        .font_size(text_size(14.))
-                                        .font_weight(FontWeight::SEMI_BOLD)
+                                        .font_size(text_size(15.))
+                                        .font_weight(FontWeight::BOLD)
                                         .color(colors::fg_primary()),
                                 )
                                 .child(
                                     label()
-                                        .text("Connexion avec vos identifiants Microsoft / Xbox")
+                                        .text("Connectez-vous avec vos identifiants officiels Microsoft / Xbox")
                                         .font_size(text_size(12.))
                                         .color(colors::fg_secondary()),
                                 ),
@@ -222,6 +222,7 @@ fn account_selection(
                         .child(
                             Button::new()
                                 .primary()
+                                .width(Size::px(150.))
                                 .enabled(!msa_pending)
                                 .on_press(on_msa)
                                 .child(Icon::new(IconType::Globe01).size(16.))
@@ -241,42 +242,41 @@ fn account_selection(
             rect()
                 .horizontal()
                 .width(Size::fill())
+                .main_align(Alignment::Center)
                 .cross_align(Alignment::Center)
-                .spacing(12.)
-                .child(rect().height(Size::px(1.)).width(Size::flex(1.0)).background(colors::component_border()))
+                .padding(Gaps::new_symmetric(4., 0.))
                 .child(
                     label()
-                        .text("OU")
+                        .text("─── OU JOUEZ EN HORS-LIGNE ───")
                         .font_size(text_size(11.))
                         .font_weight(FontWeight::BOLD)
                         .color(colors::fg_secondary()),
-                )
-                .child(rect().height(Size::px(1.)).width(Size::flex(1.0)).background(colors::component_border())),
+                ),
         )
         // Offline / Crack Card
         .child(
             rect()
                 .vertical()
                 .width(Size::fill())
-                .spacing(10.)
-                .padding(Gaps::new_all(14.))
-                .corner_radius(rounded(10.))
+                .spacing(12.)
+                .padding(Gaps::new_all(16.))
+                .corner_radius(rounded(12.))
                 .background(colors::component_bg())
                 .border(border_all_color(1., colors::component_border()))
                 .child(
                     rect()
                         .vertical()
-                        .spacing(2.)
+                        .spacing(4.)
                         .child(
                             label()
                                 .text("Compte Hors-ligne (Crack)")
-                                .font_size(text_size(14.))
-                                .font_weight(FontWeight::SEMI_BOLD)
+                                .font_size(text_size(15.))
+                                .font_weight(FontWeight::BOLD)
                                 .color(colors::fg_primary()),
                         )
                         .child(
                             label()
-                                .text("Choisissez simplement un pseudo pour jouer :")
+                                .text("Choisissez un pseudo disponible (les pseudos de comptes Premium officiels sont protégés) :")
                                 .font_size(text_size(12.))
                                 .color(colors::fg_secondary()),
                         ),
@@ -290,11 +290,12 @@ fn account_selection(
                         .child(
                             rect()
                                 .width(Size::flex(1.0))
-                                .child(TextInput::new(username).placeholder("Pseudo Minecraft (ex: Steve)")),
+                                .child(TextInput::new(username).placeholder("Entrez votre pseudo Minecraft...")),
                         )
                         .child(
                             Button::new()
                                 .secondary()
+                                .width(Size::px(140.))
                                 .enabled(can_submit_offline)
                                 .on_press(on_add_offline)
                                 .child(Icon::new(IconType::Plus).size(16.))

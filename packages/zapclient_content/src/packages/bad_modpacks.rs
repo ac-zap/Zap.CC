@@ -6,7 +6,7 @@ use super::bad_mods::{BadMod, BadModList, fetch_flag_list, fetch_md_file, lenien
 use crate::ctx::ContentCtx;
 use crate::error::ContentResult;
 
-const EXPLANATIONS_DIR: &str = "/ZapClient/bad_modpacks_mds/";
+const EXPLANATIONS_DIR: &str = "/oneclient/bad_modpacks_mds/";
 
 #[derive(Debug, Clone, Default, Deserialize)]
 struct BadModpackFile {

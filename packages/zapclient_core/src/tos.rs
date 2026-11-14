@@ -50,16 +50,27 @@ impl TermsDocument {
 
 #[tracing::instrument(level = "debug", skip(net))]
 pub async fn fetch_terms(net: &RequestClient) -> LauncherResult<TermsDocument> {
-    let url = format!("{}/ZapClient/tos.json", net.config().meta_url_base);
+    let url = format!("{}/oneclient/tos.json", net.config().meta_url_base);
     let cache_path = paths::caches_dir()?.join("TERMS.json");
 
-    let fetched = fetch_cached(net, &url, &cache_path, EtagPolicy::CommitNow)
-        .await?
-        .ok_or_else(|| LauncherError::InvalidSettingsProfile {
-            reason: "terms are unavailable and not cached".to_string(),
-        })?;
+    match fetch_cached(net, &url, &cache_path, EtagPolicy::CommitNow).await {
+        Ok(Some(fetched)) => {
+            if let Ok(doc) = fetched.json::<TermsDocument>() {
+                return Ok(doc);
+            }
+        }
+        _ => {}
+    }
 
-    Ok(fetched.json()?)
+    Ok(TermsDocument {
+        version: 1,
+        privacy_version: Some(1),
+        updated_at: Some("2026-11-14".to_string()),
+        terms: "Bienvenue sur Zap Client.\n\nEn utilisant Zap Client, vous acceptez de vous conformer aux Conditions d'Utilisation de Minecraft et de Mojang Studios, ainsi qu'aux règles des serveurs sur lesquels vous jouez.\n\nZap Client est fourni tel quel pour améliorer votre expérience de jeu.".to_string(),
+        privacy: Some("Zap Client respecte la confidentialité de vos données.\n\nAucune donnée personnelle n'est enregistrée sans votre accord explicite. Vos identifiants de compte restent chiffrés localement sur votre ordinateur.".to_string()),
+        terms_url: Some(constants::TOS_URL.to_string()),
+        privacy_url: Some(constants::PRIVACY_URL.to_string()),
+    })
 }
 
 #[cfg(test)]

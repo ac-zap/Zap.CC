@@ -22,6 +22,60 @@ static EN_US: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
     normalized
 });
 
+static FR_FR: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
+    let raw = include_str!("../lang/fr_fr.json");
+    let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
+    let parsed: HashMap<String, String> =
+        serde_json::from_str(clean).unwrap_or_default();
+    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    for (k, v) in parsed {
+        if let Some(rest) = k.strip_prefix("ZapClient.") {
+            normalized.insert(format!("zapclient.{rest}"), v.clone());
+        } else if let Some(rest) = k.strip_prefix("zapclient.") {
+            normalized.insert(format!("ZapClient.{rest}"), v.clone());
+        }
+        normalized.insert(k, v);
+    }
+    normalized
+});
+
+static ES_ES: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
+    let raw = include_str!("../lang/es_es.json");
+    let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
+    let parsed: HashMap<String, String> =
+        serde_json::from_str(clean).unwrap_or_default();
+    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    for (k, v) in parsed {
+        if let Some(rest) = k.strip_prefix("ZapClient.") {
+            normalized.insert(format!("zapclient.{rest}"), v.clone());
+        } else if let Some(rest) = k.strip_prefix("zapclient.") {
+            normalized.insert(format!("ZapClient.{rest}"), v.clone());
+        }
+        normalized.insert(k, v);
+    }
+    normalized
+});
+
+pub fn builtin_table(code: &str) -> Option<HashMap<String, String>> {
+    if code.eq_ignore_ascii_case("fr_FR") || code.eq_ignore_ascii_case("fr") {
+        Some(FR_FR.clone())
+    } else if code.eq_ignore_ascii_case("es_ES") || code.eq_ignore_ascii_case("es") {
+        Some(ES_ES.clone())
+    } else {
+        None
+    }
+}
+
+pub fn builtin_coverage(code: &str) -> Option<u32> {
+    if code.eq_ignore_ascii_case("fr_FR") || code.eq_ignore_ascii_case("fr") {
+        Some((FR_FR.len() * 100 / EN_US.len().max(1)) as u32)
+    } else if code.eq_ignore_ascii_case("es_ES") || code.eq_ignore_ascii_case("es") {
+        Some((ES_ES.len() * 100 / EN_US.len().max(1)) as u32)
+    } else {
+        None
+    }
+}
+
 static ACTIVE: RwLock<Option<&'static HashMap<String, String>>> = RwLock::new(None);
 
 thread_local! {

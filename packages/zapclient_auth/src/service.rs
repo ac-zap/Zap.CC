@@ -191,6 +191,13 @@ impl AuthService {
 
     #[tracing::instrument(skip(self), fields(username = %username))]
     pub async fn add_offline_account(&self, username: String) -> AuthResult<MinecraftAccount> {
+        let mojang_url = format!("https://api.mojang.com/users/profiles/minecraft/{username}");
+        if let Ok(res) = self.net.http().get(&mojang_url).send().await {
+            if res.status() == reqwest::StatusCode::OK {
+                return Err(AuthError::OfflineUsernameIsPremium { username });
+            }
+        }
+
         self.store
             .lock()
             .await

@@ -214,7 +214,7 @@ pub(super) async fn fetch_flag_list<T: DeserializeOwned>(
     file_name: &str,
     ctx: &ContentCtx,
 ) -> ContentResult<T> {
-    let url = format!("{}/ZapClient/{file_name}", ctx.net.config().meta_url_base);
+    let url = format!("{}/oneclient/{file_name}", ctx.net.config().meta_url_base);
     let cache_path = paths::caches_dir()?.join(file_name);
 
     let Some(fetched) = fetch_cached(&ctx.net, &url, &cache_path, EtagPolicy::CommitNow).await?
@@ -255,7 +255,7 @@ pub async fn load_bad_mods(ctx: &ContentCtx) -> Arc<BadModList> {
 #[tracing::instrument(level = "debug", skip(ctx))]
 pub async fn fetch_improvements(ctx: &ContentCtx) -> ContentResult<BadModList> {
     let url = format!(
-        "{}/ZapClient/improvements.json",
+        "{}/oneclient/improvements.json",
         ctx.net.config().meta_url_base
     );
     let cache_path = paths::caches_dir()?.join("improvements.json");
@@ -270,7 +270,7 @@ pub async fn fetch_improvements(ctx: &ContentCtx) -> ContentResult<BadModList> {
     Ok(fetched.json::<ImprovementList>()?.into())
 }
 
-const EXPLANATIONS_DIR: &str = "/ZapClient/bad_mods_mds/";
+const EXPLANATIONS_DIR: &str = "/oneclient/bad_mods_mds/";
 
 fn explanation_file_name(path: &str) -> Option<&str> {
     md_file_name(EXPLANATIONS_DIR, path)

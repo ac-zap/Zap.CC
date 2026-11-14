@@ -466,6 +466,16 @@ namespace ZapClient.Installer
         {
             try
             {
+                // Clean up any legacy OneClient registry keys or menu folders
+                try
+                {
+                    Registry.CurrentUser.DeleteSubKeyTree(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\OneClient", false);
+                    Registry.CurrentUser.DeleteSubKeyTree(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\oneclient", false);
+                    string oldMenu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), "OneClient");
+                    if (Directory.Exists(oldMenu)) Directory.Delete(oldMenu, true);
+                }
+                catch { }
+
                 using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\ZapClient"))
                 {
                     if (key != null)

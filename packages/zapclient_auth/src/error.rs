@@ -144,4 +144,7 @@ pub enum AuthError {
 
     #[error("account already exists for username {username:?}")]
     DuplicateUsername { username: String },
+
+    #[error("Ce pseudo appartient déjà à un compte Minecraft Premium officiel. Veuillez choisir un autre pseudo ou vous connecter avec Microsoft.")]
+    OfflineUsernameIsPremium { username: String },
 }

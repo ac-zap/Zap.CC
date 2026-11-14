@@ -362,7 +362,7 @@ impl BundlesManager {
     async fn fetch_manifest(ctx: &ContentCtx) -> ContentResult<Option<FetchedManifest>> {
         let manifest_path = paths::bundles_dir()?.join("metadata.json");
         let url = format!(
-            "{}/ZapClient/bundles/metadata.json",
+            "{}/oneclient/bundles/metadata.json",
             ctx.net.config().meta_url_base
         );
 
