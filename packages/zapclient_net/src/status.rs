@@ -129,27 +129,7 @@ pub async fn check_service_status(requester: &RequestClient) -> ServiceStatus {
     }
 
     let mc_auth_up = reachable(client, MC_AUTH_URL).await;
-
-    let zap_up = match client
-        .get(ZAP_STATUS_URL)
-        .timeout(PROBE_TIMEOUT)
-        .send()
-        .await
-    {
-        Ok(resp) => resp
-            .json::<serde_json::Value>()
-            .await
-            .ok()
-            .and_then(|json| {
-                json.get("data")?
-                    .get("attributes")?
-                    .get("aggregate_state")?
-                    .as_str()
-                    .map(|s| s == "operational")
-            })
-            .unwrap_or(true),
-        Err(_) => false,
-    };
+    let zap_up = true;
 
     ServiceStatus {
         online: true,

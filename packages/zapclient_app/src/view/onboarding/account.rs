@@ -121,7 +121,7 @@ fn account_card(
     rect()
         .vertical()
         .width(Size::fill())
-        .spacing(16.)
+        .spacing(14.)
         .padding(Gaps::new_all(16.))
         .corner_radius(rounded(12.))
         .background(colors::component_bg())
@@ -129,12 +129,12 @@ fn account_card(
         .child(
             rect()
                 .horizontal()
+                .width(Size::fill())
                 .spacing(14.)
                 .cross_align(Alignment::Center)
                 .child(
                     Avatar::new(account.id.to_string())
-                        .width(Size::px(48.))
-                        .height(Size::px(48.)),
+                        .size(48.),
                 )
                 .child(
                     rect()
@@ -158,14 +158,15 @@ fn account_card(
                                     colors::fg_secondary()
                                 }),
                         ),
-                )
-                .child(
-                    Button::new()
-                        .secondary()
-                        .on_press(on_change)
-                        .child(Icon::new(IconType::RefreshCw01).size(14.))
-                        .text("Changer"),
                 ),
+        )
+        .child(
+            Button::new()
+                .secondary()
+                .width(Size::fill())
+                .on_press(on_change)
+                .child(Icon::new(IconType::RefreshCw01).size(16.))
+                .text("Changer de compte"),
         )
         .into_element()
 }
@@ -195,47 +196,33 @@ fn account_selection(
                 .background(colors::component_bg())
                 .border(border_all_color(1., colors::component_border()))
                 .child(
-                    rect()
-                        .horizontal()
-                        .width(Size::fill())
-                        .cross_align(Alignment::Center)
-                        .spacing(14.)
-                        .child(
-                            rect()
-                                .vertical()
-                                .width(Size::flex(1.0))
-                                .spacing(4.)
-                                .child(
-                                    label()
-                                        .text("Compte Microsoft")
-                                        .font_size(text_size(15.))
-                                        .font_weight(FontWeight::BOLD)
-                                        .color(colors::fg_primary()),
-                                )
-                                .child(
-                                    label()
-                                        .text("Connectez-vous avec vos identifiants officiels Microsoft / Xbox")
-                                        .font_size(text_size(12.))
-                                        .color(colors::fg_secondary()),
-                                ),
-                        )
-                        .child(
-                            Button::new()
-                                .primary()
-                                .width(Size::px(150.))
-                                .enabled(!msa_pending)
-                                .on_press(on_msa)
-                                .child(Icon::new(IconType::Globe01).size(16.))
-                                .text(if msa_pending {
-                                    "Connexion..."
-                                } else {
-                                    "Se connecter"
-                                }),
-                        ),
+                    label()
+                        .text("Compte Microsoft")
+                        .font_size(text_size(15.))
+                        .font_weight(FontWeight::BOLD)
+                        .color(colors::fg_primary()),
                 )
-                .maybe_child(msa_error.map(|msg| {
-                    error_line(msg)
-                })),
+                .child(
+                    label()
+                        .text("Connectez-vous avec vos identifiants officiels Microsoft / Xbox pour jouer avec vos skins et sur tous les serveurs.")
+                        .font_size(text_size(12.))
+                        .color(colors::fg_secondary()),
+                )
+                .child(
+                    Button::new()
+                        .primary()
+                        .large()
+                        .width(Size::fill())
+                        .enabled(!msa_pending)
+                        .on_press(on_msa)
+                        .child(Icon::new(IconType::Globe01).size(18.))
+                        .text(if msa_pending {
+                            "Connexion en cours..."
+                        } else {
+                            "Se connecter avec Microsoft"
+                        }),
+                )
+                .maybe_child(msa_error.map(error_line)),
         )
         // Separator
         .child(
@@ -247,7 +234,7 @@ fn account_selection(
                 .padding(Gaps::new_symmetric(4., 0.))
                 .child(
                     label()
-                        .text("─── OU JOUEZ EN HORS-LIGNE ───")
+                        .text("─── OU JOUEZ EN HORS-LIGNE (CRACK) ───")
                         .font_size(text_size(11.))
                         .font_weight(FontWeight::BOLD)
                         .color(colors::fg_secondary()),
@@ -264,47 +251,32 @@ fn account_selection(
                 .background(colors::component_bg())
                 .border(border_all_color(1., colors::component_border()))
                 .child(
-                    rect()
-                        .vertical()
-                        .spacing(4.)
-                        .child(
-                            label()
-                                .text("Compte Hors-ligne (Crack)")
-                                .font_size(text_size(15.))
-                                .font_weight(FontWeight::BOLD)
-                                .color(colors::fg_primary()),
-                        )
-                        .child(
-                            label()
-                                .text("Choisissez un pseudo disponible (les pseudos de comptes Premium officiels sont protégés) :")
-                                .font_size(text_size(12.))
-                                .color(colors::fg_secondary()),
-                        ),
+                    label()
+                        .text("Compte Hors-ligne (Crack)")
+                        .font_size(text_size(15.))
+                        .font_weight(FontWeight::BOLD)
+                        .color(colors::fg_primary()),
                 )
                 .child(
-                    rect()
-                        .horizontal()
-                        .width(Size::fill())
-                        .cross_align(Alignment::Center)
-                        .spacing(10.)
-                        .child(
-                            rect()
-                                .width(Size::flex(1.0))
-                                .child(TextInput::new(username).placeholder("Entrez votre pseudo Minecraft...")),
-                        )
-                        .child(
-                            Button::new()
-                                .secondary()
-                                .width(Size::px(140.))
-                                .enabled(can_submit_offline)
-                                .on_press(on_add_offline)
-                                .child(Icon::new(IconType::Plus).size(16.))
-                                .text("Ajouter"),
-                        ),
+                    label()
+                        .text("Choisissez un pseudo disponible (les pseudos de comptes Premium officiels sont protégés) :")
+                        .font_size(text_size(12.))
+                        .color(colors::fg_secondary()),
                 )
-                .maybe_child(offline_error.map(|msg| {
-                    error_line(msg)
-                })),
+                .child(
+                    TextInput::new(username).placeholder("Entrez votre pseudo Minecraft..."),
+                )
+                .child(
+                    Button::new()
+                        .secondary()
+                        .large()
+                        .width(Size::fill())
+                        .enabled(can_submit_offline)
+                        .on_press(on_add_offline)
+                        .child(Icon::new(IconType::Plus).size(18.))
+                        .text("Jouer avec ce compte hors-ligne"),
+                )
+                .maybe_child(offline_error.map(error_line)),
         )
         .into_element()
 }
