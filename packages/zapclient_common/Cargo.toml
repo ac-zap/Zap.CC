@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_common"
 description = "Shared vocabulary for ZapClient: paths, constants, platform and content types"
 version.workspace = true

@@ -13,6 +13,14 @@ authors = { workspace = true }
 [features]
 default = []
 
+[[bin]]
+name = "zapclient_app"
+path = "src/main.rs"
+
+[[bin]]
+name = "ZapClient_app"
+path = "src/main.rs"
+
 [dependencies]
 zapclient_auth.workspace = true
 zapclient_cluster.workspace = true

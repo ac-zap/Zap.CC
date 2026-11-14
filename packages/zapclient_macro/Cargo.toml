@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_macro"
 description = "Macros for ZapClient"
 version = { workspace = true }

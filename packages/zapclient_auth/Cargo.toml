@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_auth"
 description = "Microsoft/Xbox/Minecraft authentication and the credentials store"
 version.workspace = true

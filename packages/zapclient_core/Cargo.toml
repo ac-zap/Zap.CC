@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 authors.workspace = true
 description = "ZapClient launcher core"
 documentation.workspace = true

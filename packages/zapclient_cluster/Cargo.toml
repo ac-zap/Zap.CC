@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_cluster"
 description = "Cluster records, their settings profiles, and their on-disk files"
 version.workspace = true

@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_mc"
 description = "Minecraft content: assets, libraries, natives, client jars, launch arguments and player profiles"
 version.workspace = true

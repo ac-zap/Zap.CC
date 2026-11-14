@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_discord"
 description = "Discord rich presence for ZapClient"
 version.workspace = true

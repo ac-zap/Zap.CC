@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_events"
 description = "The ZapClient event bus: notifications, progress, prompts and signals"
 version.workspace = true

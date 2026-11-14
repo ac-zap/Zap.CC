@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_db"
 description = "ZapClient SQLx database layer"
 version.workspace = true

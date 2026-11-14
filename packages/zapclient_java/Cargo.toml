@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_java"
 description = "Locating, probing and installing Java runtimes"
 version.workspace = true

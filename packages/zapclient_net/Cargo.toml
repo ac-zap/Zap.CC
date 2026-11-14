@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_net"
 description = "ZapClient HTTP transport: retries, throttling, ETag caching and verified downloads"
 version.workspace = true

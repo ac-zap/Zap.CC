@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "zapclient_polyplus"
 description = "Poly+ playtime reporting"
 version.workspace = true
