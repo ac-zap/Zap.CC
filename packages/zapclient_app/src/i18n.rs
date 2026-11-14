@@ -10,12 +10,15 @@ static EN_US: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
     let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
     let parsed: HashMap<String, String> =
         serde_json::from_str(clean).expect("lang/en_us.json is valid");
-    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    let mut normalized = HashMap::with_capacity(parsed.len() * 3);
     for (k, v) in parsed {
+        normalized.insert(k.to_lowercase(), v.clone());
         if let Some(rest) = k.strip_prefix("ZapClient.") {
             normalized.insert(format!("zapclient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         } else if let Some(rest) = k.strip_prefix("zapclient.") {
             normalized.insert(format!("ZapClient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         }
         normalized.insert(k, v);
     }
@@ -27,12 +30,15 @@ static FR_FR: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
     let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
     let parsed: HashMap<String, String> =
         serde_json::from_str(clean).unwrap_or_default();
-    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    let mut normalized = HashMap::with_capacity(parsed.len() * 3);
     for (k, v) in parsed {
+        normalized.insert(k.to_lowercase(), v.clone());
         if let Some(rest) = k.strip_prefix("ZapClient.") {
             normalized.insert(format!("zapclient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         } else if let Some(rest) = k.strip_prefix("zapclient.") {
             normalized.insert(format!("ZapClient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         }
         normalized.insert(k, v);
     }
@@ -44,12 +50,15 @@ static ES_ES: LazyLock<HashMap<String, String>> = LazyLock::new(|| {
     let clean = raw.strip_prefix('\u{feff}').unwrap_or(raw);
     let parsed: HashMap<String, String> =
         serde_json::from_str(clean).unwrap_or_default();
-    let mut normalized = HashMap::with_capacity(parsed.len() * 2);
+    let mut normalized = HashMap::with_capacity(parsed.len() * 3);
     for (k, v) in parsed {
+        normalized.insert(k.to_lowercase(), v.clone());
         if let Some(rest) = k.strip_prefix("ZapClient.") {
             normalized.insert(format!("zapclient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         } else if let Some(rest) = k.strip_prefix("zapclient.") {
             normalized.insert(format!("ZapClient.{rest}"), v.clone());
+            normalized.insert(format!("zapclient.{}", rest.to_lowercase()), v.clone());
         }
         normalized.insert(k, v);
     }

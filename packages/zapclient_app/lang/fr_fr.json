@@ -1113,5 +1113,11 @@
     "zapclient.clusters.instance.model.kind.snapshots":  "Snapshots",
     "zapclient.clusters.instance.model.loader.fabric":  "Léger et rapide à démarrer. Le plus large choix de mods sur les versions modernes, et la version Legacy couvre la 1.8.9 et les versions antérieures.",
     "zapclient.clusters.instance.model.loader.forge":  "Le loader le plus ancien. La plupart des paquets 1.12.2 et 1.8.9 en ont besoin.",
-    "zapclient.clusters.instance.model.loader.neoforge":  "Le successeur de Forge, pour 1.20.2 et plus récent."
+    "zapclient.clusters.instance.model.loader.neoforge":  "Le successeur de Forge, pour 1.20.2 et plus récent.",
+    "zapclient.components.status_bar.zap_down":  "Les services Zap rencontrent des difficultés.",
+    "zapclient.components.status_bar.signed_out_unknown":  "Vous avez été déconnecté de votre compte. Reconnectez-vous pour continuer à jouer.",
+    "zapclient.components.status_bar.mc_auth_down":  "Les serveurs d\u0027authentification Minecraft sont inaccessibles. La connexion peut échouer.",
+    "zapclient.components.status_bar.signed_out":  "Vous avez été déconnecté de %s. Reconnectez-vous pour continuer à jouer.",
+    "zapclient.components.status_bar.no_internet":  "Aucune connexion Internet.",
+    "zapclient.components.status_bar.sign_in":  "Se connecter"
 }

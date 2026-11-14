@@ -100,6 +100,7 @@ impl Component for OnboardingAccount {
         );
 
         rect()
+            .vertical()
             .width(Size::fill())
             .height(Size::fill())
             .child(page)
