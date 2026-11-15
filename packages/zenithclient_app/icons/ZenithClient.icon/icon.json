@@ -8,8 +8,8 @@
           "fill": "automatic",
           "glass": true,
           "hidden": false,
-          "image-name": "zapclient-mark.svg",
-          "name": "zapclient-mark",
+          "image-name": "zenithclient-mark.svg",
+          "name": "zenithclient-mark",
           "position": {
             "scale": 3.6,
             "translation-in-points": [

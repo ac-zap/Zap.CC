@@ -41,6 +41,17 @@
   - Variable d'environnement GPU : `ZENITHCLIENT_GPU_CACHE_BYTES`.
 
 ### Phase 4 & 4 bis : Identité Visuelle & Assets Graphiques (Complété)
+- **Catalogue d'Icônes macOS (`ZenithClient.icon`)** :
+  - `Assets/zenithclient-mark.svg` régénéré avec le blason vectoriel Zenith et les dégradés officiel Bleu ciel `#38BDF8` et Bleu royal `#1E40AF`.
+  - `icon.json` mis à jour pour référencer `zenithclient-mark.svg` et le calque `zenithclient-mark`.
+- **Suite Complète d'Icônes Launcher (`packages/zenithclient_app/icons/`)** :
+  - Déploiement direct de toutes les résolutions : `16x16`, `32x32`, `64x64`, `128x128`, `128x128@2x` (256), `512x512`, `icon.png`, `StoreLogo.png`, `tray.png`, `icon.ico`.
+  - Génération de l'archive binaire Apple ICNS `icon.icns` (298 KB) encapsulant les blocs `ic07`, `ic08`, `ic09`, `ic10`.
+  - Icône pixel vectorielle : `packages/zenithclient_app/assets/icons/pixel/icon-logo.svg` mise à jour avec l'apex Zenith.
+- **Packaging & Médias Distribution** :
+  - Arrière-plans DMG macOS : `dmg-background.png`, `dmg-background@2x.png` et `dmg-background.tiff` créés aux couleurs Bleu nuit `#0A1128` avec logo Zenith et flèche d'installation vers Applications.
+  - Bannière GitHub officielle : `.github/media/RepoBanner.png` (3000x1000) générée avec typographie Poppins, lueur d'apex et palette officielle.
+  - Animation logo : `.github/media/zenith-logo.gif` déployée et référencée dans `README.md`.
 - **Dossier Centralisé `D:\[GRAPHIQUE]\[Zenith]`** :
   - Sauvegarde préalable des anciens assets Zap dans `_ORIGINAL_ZAP_BACKUP\`.
   - Génération de toute la suite d'icônes carrées PNG : 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, 512x512, 1024x1024.

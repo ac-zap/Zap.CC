@@ -1,4 +1,4 @@
-﻿%global debug_package %{nil}
+%global debug_package %{nil}
 %global __strip /bin/true
 %global _appname ZenithClient
 %global _rpmfile %{_appname}_%{version}_linux_x86_64.rpm

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src=".github/media/zap-logo.gif" alt="Zap Animation" width="300">
+  <img src=".github/media/zenith-logo.gif" alt="Zenith Animation" width="300">
 </p>
 
 <p align="center">

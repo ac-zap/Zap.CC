@@ -1,4 +1,4 @@
-﻿id: cc.zenith.client
+id: cc.zenith.client
 runtime: org.gnome.Platform
 runtime-version: '51'
 sdk: org.gnome.Sdk
