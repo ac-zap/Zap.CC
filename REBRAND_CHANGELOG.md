@@ -1,6 +1,35 @@
 # REBRAND CHANGELOG : Zap Client -> Zenith Client
 
-## [Unreleased] - rebrand-zenith
+## [Unreleased] - visual-refresh-zenith
+
+### Phase 7 : Isolation Complète des Profils (Système type `.fastclient`)
+- **Architecture de Répertoires Dédiés par Profil** :
+  - Adoption intégrale du paradigme d'isolation inspiré de `%APPDATA%\.fastclient`.
+  - Chaque profil/instance (`clusters/<Nom>` ou via le point de jonction `profiles/<Nom>`) possède désormais son propre dossier de jeu isolé.
+  - Séparation stricte par profil :
+    - `resourcepacks/` dédié (les packs de texture activés dans une version n'interfèrent pas avec les autres).
+    - `shaderpacks/` dédié (shaders indépendants par profil).
+    - `mods/` dédié.
+    - `config/` dédié (configurations de mods spécifiques à la version).
+    - `saves/` et `worlds/` dédiés.
+    - `options.txt` et `servers.dat` indépendants par profil.
+  - Les assets globaux immuables (sons vanilla, textures Mojang, bibliothèques Java) restent mutualisés dans `metadata/` pour éviter de télécharger inutilement des gigaoctets.
+- **Marqueur & Intégration Native Rust** :
+  - Déploiement automatique du marqueur `.dedicated_directory` sur l'ensemble des profils existants (`26.3 Fabric`, `1.21.1 Fabric`, `1.21.10 Fabric`, `1.21.11 Fabric`, `1.8.9 Fabric`, `26.1.2 Fabric`, `26.2 Fabric`).
+  - `DirTarget::default()` modifié vers `DirTarget::Dedicated` dans `zenithclient_cluster/src/cluster.rs`.
+  - Modal de création d'instance (`create.rs` et `steps.rs`) calibré par défaut sur `FolderChoice::Dedicated` avec mention "(Recommandé)".
+  - Arguments de lancement Minecraft : `--gameDir` pointe directement sur le répertoire du profil sélectionné.
+
+### Phase Visual Refresh : Design Tokens & Motion Engine Zenith v2
+- **Tokens Centralisés (`tokens.rs`)** :
+  - Palette officielle Zenith v2 : Bleu nuit `#060B1F` / `#0A1128`, Bleu profond `#101B3D`, Accent Bleu ciel `#38BDF8`, Ice `#BAE6FD`.
+  - Système d'élévation, rayons d'arrondis (`RADIUS_*`), lueurs (glow) et constantes d'ombres.
+  - Tokens de mouvement : courbes d'animation `EASE_OUT_CUBIC`, `EASE_IN_OUT_SPRING` et paliers de durée (120ms à 500ms).
+- **Rapports d'Audit Visuel** :
+  - Cartographie exhaustive dans `VISUAL_AUDIT.md`.
+  - Comparatif visuel avant/après documenté dans `VISUAL_BEFORE_AFTER.md`.
+
+## [2.10.1] - rebrand-zenith
 
 ### Phase 6 : Client en-jeu (In-Game) & Expérience Utilisateur (Complété)
 - **Splash Screen de Chargement (StartupOverlay)** :
