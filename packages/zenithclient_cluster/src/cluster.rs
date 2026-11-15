@@ -24,7 +24,7 @@ pub enum DirTarget {
 
 impl Default for DirTarget {
     fn default() -> Self {
-        Self::Shared(None)
+        Self::Dedicated
     }
 }
 

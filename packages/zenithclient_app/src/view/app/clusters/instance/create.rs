@@ -200,7 +200,7 @@ impl Component for CreateInstanceModal {
             import_extra: use_state(Vec::new),
             import_mode: use_state(|| ImportMode::AsIs),
             import_decisions: use_state(HashMap::new),
-            folder: use_state(|| FolderChoice::Shared),
+            folder: use_state(|| FolderChoice::Dedicated),
             details: DetailsState::blank(),
         };
         let dispatch = use_dispatch();

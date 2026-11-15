@@ -303,20 +303,20 @@ impl Component for FolderStep {
         let dispatch = use_dispatch();
         let cards = [
             (
-                FolderChoice::Shared,
-                IconType::Link03,
-                t("zenithclient.clusters.instance.steps.folder.shared.title").to_string(),
-                Some(t("zenithclient.clusters.instance.steps.recommended")),
-                t("zenithclient.clusters.instance.steps.folder.shared.blurb").to_string(),
-                t("zenithclient.clusters.instance.steps.folder.shared.meta").to_string(),
-            ),
-            (
                 FolderChoice::Dedicated,
                 IconType::Folder,
                 t("zenithclient.clusters.instance.steps.folder.dedicated.title").to_string(),
-                None,
+                Some(t("zenithclient.clusters.instance.steps.recommended")),
                 t("zenithclient.clusters.instance.steps.folder.dedicated.blurb").to_string(),
                 t("zenithclient.clusters.instance.steps.folder.dedicated.meta").to_string(),
+            ),
+            (
+                FolderChoice::Shared,
+                IconType::Link03,
+                t("zenithclient.clusters.instance.steps.folder.shared.title").to_string(),
+                None,
+                t("zenithclient.clusters.instance.steps.folder.shared.blurb").to_string(),
+                t("zenithclient.clusters.instance.steps.folder.shared.meta").to_string(),
             ),
         ];
         let custom = groups.into_iter().map(|group| {
