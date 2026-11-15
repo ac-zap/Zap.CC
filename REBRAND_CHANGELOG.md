@@ -2,6 +2,25 @@
 
 ## [Unreleased] - visual-refresh-zenith
 
+### Phase 8 : Installateur Windows Officiel Zenith Client (Complété)
+- **Exécutable Autonome & Déploiement** :
+  - Génération de l'installateur officiel **[ZenithClient-Installer.exe](file:///C:/Users/v3sc/Desktop/ZenithClient-Installer.exe)** (73.59 Mo) sur le Bureau.
+  - Embarque directement dans ses ressources Win32 l'archive payload compressée (`payload.zip`), l'icône haute résolution officielle (`icon.ico`) et le logo haute définition (`logo.png`).
+- **Interface Graphique Personnalisée (Zenith Theme)** :
+  - Fenêtre sans bordure déplaçable avec palette officielle : Bleu nuit `#060B1F` / `#0A1128`, Bleu royal `#1E40AF`, Accent Bleu ciel `#38BDF8`.
+  - Affichage de l'apex Zenith haute fidélité, titre en typographie officielle et sous-titre calibré.
+  - Sélecteur de répertoire cible (défaut : `%LOCALAPPDATA%\Programs\ZenithClient`), cases à cocher pour raccourcis Bureau / Menu Démarrer et lancement automatique.
+  - Barre de progression avec retour d'état en temps réel en français.
+- **Support des Modes Avancés** :
+  - Mode silencieux (`/S` ou `/silent`) pour déploiement automatisé sans interface.
+  - Désinstallation complète (`/uninstall`) avec nettoyage des raccourcis, du registre et des fichiers.
+- **Intégration Système Complète** :
+  - Extraction de l'exécutable client (`ZenithClient.exe` et `ZenithClient_app.exe`) avec icône Zenith injectée dans les ressources PE.
+  - Déploiement des 10 bibliothèques de runtime Microsoft Visual C++ CRT (`concrt140.dll`, `msvcp140.dll`, etc.).
+  - Enregistrement dans le Panneau de configuration Windows (`HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\ZenithClient`).
+  - Enregistrement du protocole URL `zenithclient://` pour l'installation de mods et packs en 1 clic.
+  - Raccourci Bureau officiel `Zenith Client.lnk`.
+
 ### Phase 7 : Isolation Complète des Profils (Système type `.fastclient`)
 - **Architecture de Répertoires Dédiés par Profil** :
   - Adoption intégrale du paradigme d'isolation inspiré de `%APPDATA%\.fastclient`.
