@@ -1,4 +1,4 @@
-﻿use std::path::PathBuf;
+use std::path::PathBuf;
 use std::time::Duration;
 
 use chrono::{DateTime, Utc};

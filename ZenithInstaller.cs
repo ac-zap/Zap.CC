@@ -29,8 +29,8 @@ namespace ZenithClient.Installer
         private PictureBox picLogo;
         private bool isFinished = false;
 
-        private readonly Color bgDark = Color.FromArgb(10, 17, 40);       // #0A1128
-        private readonly Color panelBg = Color.FromArgb(16, 27, 61);      // #101B3D
+        private readonly Color bgDark = Color.FromArgb(6, 11, 31);       // #060B1F
+        private readonly Color panelBg = Color.FromArgb(10, 17, 40);      // #0A1128
         private readonly Color cardBorder = Color.FromArgb(30, 64, 175);   // #1E40AF
         private readonly Color accentBlue = Color.FromArgb(56, 189, 248);  // #38BDF8
         private readonly Color textWhite = Color.FromArgb(241, 245, 249);  // #F1F5F9
@@ -51,7 +51,7 @@ namespace ZenithClient.Installer
             this.ForeColor = textWhite;
             this.Font = new Font("Segoe UI", 9.5f, FontStyle.Regular);
 
-            // Enable drag on borderless form
+            // Drag support
             this.MouseDown += (s, e) => {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -77,17 +77,33 @@ namespace ZenithClient.Installer
 
             picLogo = new PictureBox
             {
-                Size = new Size(48, 48),
-                Location = new Point(24, 18),
-                SizeMode = PictureBoxSizeMode.Zoom
+                Size = new Size(52, 52),
+                Location = new Point(22, 16),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                BackColor = Color.Transparent
             };
+
             try {
-                using (Stream icoStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("icon.ico"))
+                Assembly asm = Assembly.GetExecutingAssembly();
+                using (Stream imgStream = asm.GetManifestResourceStream("logo.png"))
+                {
+                    if (imgStream != null) {
+                        picLogo.Image = Image.FromStream(imgStream);
+                    } else {
+                        using (Stream icoStream = asm.GetManifestResourceStream("icon.ico"))
+                        {
+                            if (icoStream != null) {
+                                Icon appIcon = new Icon(icoStream, 48, 48);
+                                picLogo.Image = appIcon.ToBitmap();
+                                this.Icon = appIcon;
+                            }
+                        }
+                    }
+                }
+                using (Stream icoStream = asm.GetManifestResourceStream("icon.ico"))
                 {
                     if (icoStream != null) {
-                        Icon appIcon = new Icon(icoStream, 48, 48);
-                        picLogo.Image = appIcon.ToBitmap();
-                        this.Icon = appIcon;
+                        this.Icon = new Icon(icoStream);
                     }
                 }
             } catch { }
@@ -104,7 +120,7 @@ namespace ZenithClient.Installer
             lblSubtitle = new Label
             {
                 Text = "Le client Minecraft nouvelle génération — Performance • Précision • Puissance",
-                Font = new Font("Segoe UI", 9.5f, FontStyle.Regular),
+                Font = new Font("Segoe UI", 9.0f, FontStyle.Regular),
                 ForeColor = accentBlue,
                 Location = new Point(86, 48),
                 AutoSize = true
@@ -222,7 +238,7 @@ namespace ZenithClient.Installer
 
             lblStatus = new Label
             {
-                Text = "Cliquez sur Installer pour démarrer l'installation.",
+                Text = "Cliquez sur « Installer maintenant » pour installer Zenith Client.",
                 Location = new Point(0, 210),
                 Size = new Size(532, 22),
                 ForeColor = textMuted
@@ -273,7 +289,7 @@ namespace ZenithClient.Installer
                 string exePath = Path.Combine(targetDir, "ZenithClient.exe");
                 if (chkLaunch.Checked && File.Exists(exePath))
                 {
-                    System.Diagnostics.Process.Start(exePath);
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(exePath) { WorkingDirectory = targetDir });
                 }
                 Application.Exit();
                 return;
@@ -298,130 +314,27 @@ namespace ZenithClient.Installer
             try
             {
                 string targetDir = "";
-                this.Invoke(new Action(() => { targetDir = txtPath.Text; }));
-
-                UpdateStatus("Arrêt des instances existantes...", 15);
-                string[] procNames = new string[] {
-                    "ZenithClient", "ZenithClient_app", "zenithclient_app",
-                    "ZapClient", "ZapClient_app", "zapclient_app",
-                    "OneClient", "oneclient_app"
-                };
-                foreach (string name in procNames)
-                {
-                    try
-                    {
-                        foreach (var p in System.Diagnostics.Process.GetProcessesByName(name))
-                        {
-                            try { p.Kill(); p.WaitForExit(3000); } catch { }
-                        }
-                    }
-                    catch { }
-                }
-
-                UpdateStatus("Création du répertoire cible...", 20);
-                if (!Directory.Exists(targetDir))
-                {
-                    Directory.CreateDirectory(targetDir);
-                }
-
-                UpdateStatus("Extraction des fichiers de Zenith Client...", 40);
-                Assembly asm = Assembly.GetExecutingAssembly();
-                using (Stream resStream = asm.GetManifestResourceStream("payload.zip"))
-                {
-                    if (resStream == null)
-                    {
-                        throw new Exception("Archive payload.zip introuvable dans les ressources.");
-                    }
-                    using (ZipArchive archive = new ZipArchive(resStream))
-                    {
-                        int count = archive.Entries.Count;
-                        int current = 0;
-                        foreach (ZipArchiveEntry entry in archive.Entries)
-                        {
-                            string destPath = Path.Combine(targetDir, entry.FullName);
-                            if (string.IsNullOrEmpty(entry.Name))
-                            {
-                                Directory.CreateDirectory(destPath);
-                            }
-                            else
-                            {
-                                Directory.CreateDirectory(Path.GetDirectoryName(destPath));
-                                entry.ExtractToFile(destPath, true);
-                            }
-                            current++;
-                            int pct = 40 + (int)((current / (float)count) * 40);
-                            UpdateStatus("Extraction : " + entry.Name, pct);
-                        }
-                    }
-                }
-
-                // Ensure both ZenithClient.exe and ZenithClient_app.exe exist
-                string mainExe = Path.Combine(targetDir, "ZenithClient.exe");
-                string appExeCaps = Path.Combine(targetDir, "ZenithClient_app.exe");
-                string appExeLower = Path.Combine(targetDir, "zenithclient_app.exe");
-
-                if (File.Exists(appExeCaps))
-                {
-                    File.Copy(appExeCaps, mainExe, true);
-                }
-                else if (File.Exists(appExeLower))
-                {
-                    File.Copy(appExeLower, mainExe, true);
-                }
-                else if (File.Exists(mainExe))
-                {
-                    File.Copy(mainExe, appExeCaps, true);
-                }
-
-                // Extract embedded icon to destination
-                string destIcon = Path.Combine(targetDir, "icon.ico");
-                using (Stream icoStream = asm.GetManifestResourceStream("icon.ico"))
-                {
-                    if (icoStream != null)
-                    {
-                        using (FileStream fs = new FileStream(destIcon, FileMode.Create, FileAccess.Write))
-                        {
-                            icoStream.CopyTo(fs);
-                        }
-                    }
-                }
-
-                UpdateStatus("Création des raccourcis...", 85);
                 bool makeDesktop = true;
                 bool makeStartMenu = true;
+                bool launch = true;
+
                 this.Invoke(new Action(() => {
+                    targetDir = txtPath.Text;
                     makeDesktop = chkDesktop.Checked;
                     makeStartMenu = chkStartMenu.Checked;
+                    launch = chkLaunch.Checked;
                 }));
 
-                if (makeDesktop)
-                {
-                    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-                    string shortcutPath = Path.Combine(desktopPath, "Zenith Client.lnk");
-                    CreateShortcut(shortcutPath, mainExe, targetDir, destIcon, "Zenith Client - Performance • Precision • Power");
-                }
-
-                if (makeStartMenu)
-                {
-                    string programsPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
-                    string menuFolder = Path.Combine(programsPath, "Zenith Client");
-                    Directory.CreateDirectory(menuFolder);
-                    string shortcutPath = Path.Combine(menuFolder, "Zenith Client.lnk");
-                    CreateShortcut(shortcutPath, mainExe, targetDir, destIcon, "Zenith Client - Performance • Precision • Power");
-                }
-
-                UpdateStatus("Enregistrement dans le Registre Windows...", 95);
-                RegisterUninstall(targetDir, mainExe, destIcon);
-                RegisterProtocol(mainExe);
-
-                UpdateStatus("Installation terminée avec succès !", 100);
+                InstallerCore.ExecuteInstall(targetDir, makeDesktop, makeStartMenu, (msg, pct) => {
+                    UpdateStatus(msg, pct);
+                });
 
                 this.Invoke(new Action(() => {
                     isFinished = true;
                     btnAction.Text = "Lancer Zenith Client";
                     btnAction.Enabled = true;
                     btnAction.BackColor = Color.FromArgb(56, 189, 248); // Sky blue
-                    btnAction.ForeColor = Color.FromArgb(10, 17, 40);
+                    btnAction.ForeColor = Color.FromArgb(6, 11, 31);
                     lblStatus.ForeColor = Color.FromArgb(56, 189, 248);
                     lblStatus.Text = "Installation réussie ! Zenith Client est prêt à l'emploi.";
                 }));
@@ -448,7 +361,140 @@ namespace ZenithClient.Installer
             progressBar.Value = Math.Min(100, Math.Max(0, progress));
         }
 
-        private void CreateShortcut(string shortcutPath, string targetExe, string workDir, string iconPath, string desc)
+        // Win32 drag helper
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+    }
+
+    public static class InstallerCore
+    {
+        public static void KillRunningProcesses()
+        {
+            string[] procNames = new string[] {
+                "ZenithClient", "ZenithClient_app", "zenithclient_app",
+                "ZapClient", "ZapClient_app", "zapclient_app",
+                "OneClient", "oneclient_app"
+            };
+            foreach (string name in procNames)
+            {
+                try
+                {
+                    foreach (var p in System.Diagnostics.Process.GetProcessesByName(name))
+                    {
+                        try { p.Kill(); p.WaitForExit(3000); } catch { }
+                    }
+                }
+                catch { }
+            }
+        }
+
+        public static void ExecuteInstall(string targetDir, bool makeDesktop, bool makeStartMenu, Action<string, int> progressCallback)
+        {
+            progressCallback("Arrêt des instances existantes...", 15);
+            KillRunningProcesses();
+
+            progressCallback("Création du répertoire cible...", 20);
+            if (!Directory.Exists(targetDir))
+            {
+                Directory.CreateDirectory(targetDir);
+            }
+
+            progressCallback("Extraction des fichiers de Zenith Client...", 35);
+            Assembly asm = Assembly.GetExecutingAssembly();
+            using (Stream resStream = asm.GetManifestResourceStream("payload.zip"))
+            {
+                if (resStream == null)
+                {
+                    throw new Exception("Archive payload.zip introuvable dans les ressources.");
+                }
+                using (ZipArchive archive = new ZipArchive(resStream))
+                {
+                    int count = archive.Entries.Count;
+                    int current = 0;
+                    foreach (ZipArchiveEntry entry in archive.Entries)
+                    {
+                        string destPath = Path.Combine(targetDir, entry.FullName);
+                        if (string.IsNullOrEmpty(entry.Name))
+                        {
+                            Directory.CreateDirectory(destPath);
+                        }
+                        else
+                        {
+                            Directory.CreateDirectory(Path.GetDirectoryName(destPath));
+                            entry.ExtractToFile(destPath, true);
+                        }
+                        current++;
+                        int pct = 35 + (int)((current / (float)count) * 45);
+                        progressCallback("Extraction : " + entry.Name, pct);
+                    }
+                }
+            }
+
+            string mainExe = Path.Combine(targetDir, "ZenithClient.exe");
+            string appExe = Path.Combine(targetDir, "ZenithClient_app.exe");
+            if (File.Exists(mainExe) && !File.Exists(appExe))
+            {
+                File.Copy(mainExe, appExe, true);
+            }
+            else if (File.Exists(appExe) && !File.Exists(mainExe))
+            {
+                File.Copy(appExe, mainExe, true);
+            }
+
+            // Extract icon.ico
+            string destIcon = Path.Combine(targetDir, "icon.ico");
+            using (Stream icoStream = asm.GetManifestResourceStream("icon.ico"))
+            {
+                if (icoStream != null)
+                {
+                    using (FileStream fs = new FileStream(destIcon, FileMode.Create, FileAccess.Write))
+                    {
+                        icoStream.CopyTo(fs);
+                    }
+                }
+            }
+
+            // Copy self as uninstaller
+            string uninstallerExe = Path.Combine(targetDir, "Uninstall.exe");
+            try
+            {
+                string currentExe = Assembly.GetExecutingAssembly().Location;
+                if (File.Exists(currentExe))
+                {
+                    File.Copy(currentExe, uninstallerExe, true);
+                }
+            }
+            catch { }
+
+            progressCallback("Création des raccourcis...", 85);
+            if (makeDesktop)
+            {
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                string shortcutPath = Path.Combine(desktopPath, "Zenith Client.lnk");
+                CreateShortcut(shortcutPath, mainExe, targetDir, destIcon, "Zenith Client - Performance • Precision • Power");
+            }
+
+            if (makeStartMenu)
+            {
+                string programsPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
+                string menuFolder = Path.Combine(programsPath, "Zenith Client");
+                Directory.CreateDirectory(menuFolder);
+                string shortcutPath = Path.Combine(menuFolder, "Zenith Client.lnk");
+                CreateShortcut(shortcutPath, mainExe, targetDir, destIcon, "Zenith Client - Performance • Precision • Power");
+            }
+
+            progressCallback("Enregistrement dans le Registre Windows...", 95);
+            RegisterUninstall(targetDir, mainExe, destIcon, uninstallerExe);
+            RegisterProtocol(mainExe);
+
+            progressCallback("Installation terminée avec succès !", 100);
+        }
+
+        public static void CreateShortcut(string shortcutPath, string targetExe, string workDir, string iconPath, string desc)
         {
             try
             {
@@ -467,11 +513,11 @@ namespace ZenithClient.Installer
             catch { }
         }
 
-        private void RegisterUninstall(string targetDir, string exePath, string iconPath)
+        public static void RegisterUninstall(string targetDir, string exePath, string iconPath, string uninstallerPath)
         {
             try
             {
-                // Clean up legacy ZapClient and OneClient registry keys
+                // Delete legacy uninstall keys
                 try
                 {
                     Registry.CurrentUser.DeleteSubKeyTree(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\ZapClient", false);
@@ -492,6 +538,7 @@ namespace ZenithClient.Installer
                         key.SetValue("Publisher", "ZenithClient");
                         key.SetValue("InstallLocation", targetDir);
                         key.SetValue("DisplayIcon", iconPath);
+                        key.SetValue("UninstallString", "\"" + (File.Exists(uninstallerPath) ? uninstallerPath : exePath) + "\" /uninstall");
                         key.SetValue("NoModify", 1, RegistryValueKind.DWord);
                         key.SetValue("NoRepair", 1, RegistryValueKind.DWord);
                     }
@@ -500,7 +547,7 @@ namespace ZenithClient.Installer
             catch { }
         }
 
-        private void RegisterProtocol(string exePath)
+        public static void RegisterProtocol(string exePath)
         {
             try
             {
@@ -523,19 +570,83 @@ namespace ZenithClient.Installer
             catch { }
         }
 
-        // Win32 drag helper
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
+        public static void ExecuteUninstall()
+        {
+            try
+            {
+                KillRunningProcesses();
 
+                // Delete desktop shortcut
+                string desktopShortcut = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "Zenith Client.lnk");
+                if (File.Exists(desktopShortcut)) File.Delete(desktopShortcut);
+
+                // Delete start menu folder
+                string menuFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Programs), "Zenith Client");
+                if (Directory.Exists(menuFolder)) Directory.Delete(menuFolder, true);
+
+                // Delete registry keys
+                try { Registry.CurrentUser.DeleteSubKeyTree(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\ZenithClient", false); } catch { }
+                try { Registry.CurrentUser.DeleteSubKeyTree(@"Software\Classes\zenithclient", false); } catch { }
+
+                // Schedule install dir removal
+                string installDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                if (Directory.Exists(installDir) && installDir.EndsWith("ZenithClient", StringComparison.OrdinalIgnoreCase))
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        Arguments = "/C timeout /T 2 /NOBREAK > NUL & rmdir /S /Q \"" + installDir + "\"",
+                        WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                        CreateNoWindow = true
+                    });
+                }
+
+                MessageBox.Show("Zenith Client a été désinstallé avec succès de votre ordinateur.", "Désinstallation terminée", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de la désinstallation : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
+    public static class Program
+    {
         [STAThread]
-        public static void Main()
+        public static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            if (args != null && args.Length > 0)
+            {
+                string first = args[0].ToLowerInvariant();
+                if (first == "/uninstall" || first == "-uninstall" || first == "/u")
+                {
+                    DialogResult res = MessageBox.Show(
+                        "Êtes-vous sûr de vouloir désinstaller Zenith Client de votre ordinateur ?",
+                        "Désinstallation de Zenith Client",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+                    if (res == DialogResult.Yes)
+                    {
+                        InstallerCore.ExecuteUninstall();
+                    }
+                    return;
+                }
+                else if (first == "/s" || first == "/silent")
+                {
+                    string target = Path.Combine(
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "Programs",
+                        "ZenithClient"
+                    );
+                    InstallerCore.ExecuteInstall(target, true, true, (m, p) => { });
+                    return;
+                }
+            }
+
             Application.Run(new InstallerForm());
         }
     }
