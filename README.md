@@ -1,4 +1,4 @@
-﻿# Zenith Client ⚡
+# Zenith Client ⚡
 
 <p align="center">
   <img src=".github/media/RepoBanner.png" alt="Zenith Client Banner" width="100%">

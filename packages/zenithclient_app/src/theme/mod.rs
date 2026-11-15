@@ -12,6 +12,7 @@ use crate::AppAssets;
 use colors::Palette;
 
 pub mod colors;
+pub mod tokens;
 
 pub const NAVBAR_HEIGHT_PX: f32 = 80.;
 pub const HOME_PADDING_PX: f32 = 48.;
